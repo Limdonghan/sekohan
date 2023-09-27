@@ -1,36 +1,26 @@
 <template>
-    <div>
-      <ul class="header">
-        <li class="logo">
-          <v-img width="150" src="@/assets/sekohan_logo.png" />
-        </li>
-        <li class="nav-item">
-          <v-btn flat class="nav-button">
+    <header>
+        <table>
+            <tr>
+                <td style="width: 35%;"><v-img width="150" src="@/assets/sekohan_logo.png" /></td>
+                <td style="width: 10%;"><v-btn flat class="nav-button">
             <h1>HOME</h1>
-          </v-btn>
-        </li>
-        <li class="nav-item">
-          <v-btn flat class="nav-button">
+          </v-btn></td>
+                <td style="width: 10%;"><v-btn flat class="nav-button">
             <h1>CATEGORIES</h1>
-          </v-btn>
-        </li>
-        <li class="nav-item">
-          <v-btn flat class="nav-button">
+          </v-btn></td>
+                <td style="width: 34%;"><v-btn flat class="nav-button">
             <h1>FAQ</h1>
-          </v-btn>
-        </li>
-        <li class="icon-item-user">
-          <v-btn icon flat>
+          </v-btn></td>
+                <td align="right"><v-btn icon flat>
             <svg-icon type="mdi" :path="path"></svg-icon>
-          </v-btn>
-        </li>
-        <li class="icon-item-cart">
-          <v-btn icon flat>
+          </v-btn></td>
+                <td align="right"><v-btn icon flat>
             <svg-icon type="mdi" :path="mdiCartOutline"></svg-icon>
-          </v-btn>
-        </li>
-      </ul>
-    </div>
+          </v-btn></td>
+            </tr>
+        </table>
+    </header>
   </template>
 <script>
  import SvgIcon from '@jamescoyle/vue-icon';
@@ -51,30 +41,14 @@ export default {
 </script>
 
 <style>
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 30px;
-  border-bottom: 1px solid #303030;
-}
-.header li{
-    list-style: none;
-}
-.logo{
-    margin-left: 10%;
-}
-.nav-bar {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
+header {
+    padding: 30px;
+    border-bottom: 1px solid #303030;
 }
 
-.nav-item {
-  margin: 0 10px; 
-}
-
-.icon-item {
-  margin-left: 10px;
+header table {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
 </style>
