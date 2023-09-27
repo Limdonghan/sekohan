@@ -1,7 +1,9 @@
 <template>
-  <HelloWorld />
+  <HeaderBar />
 </template>
 
-<script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>  
+import HeaderBar from '@/components/HeaderBar.vue'
+
+
 </script>
