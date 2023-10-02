@@ -27,11 +27,11 @@
                 >Close</v-btn>
               </v-card-actions>
             </v-card>
+          </template>
         </v-dialog>
       </v-col>
     </v-row>
 </template>
-
 <script setup>  
 
 

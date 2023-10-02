@@ -1,38 +1,58 @@
 <template>
-  <v-window class="window"
-    v-model="onboarding"
-    show-arrows="hover"
-  >
-    <v-window-item
-      v-for="n in length"
-      :key="`card-${n}`"
+    <Event />
+    <v-sheet 
+      class="mx-auto"
+      elevation="8"
+      max-width="800"
     >
-      <v-card
-        elevation="2"
-        height="200"
-        class="d-flex align-center justify-center ma-2"
+      <v-slide-group
+        v-model="model"
+        class="pa-4"
+        selected-class="bg-success"
+        show-arrows
       >
-        <h1
-          class="text-h2"
+        <v-slide-group-item
+          v-for="n in 15"
+          :key="n"
+          v-slot="{ isSelected, toggle, selectedClass }"
         >
-          Slide {{ n }}
-        </h1>
-      </v-card>
-    </v-window-item>
-  </v-window>
-</template>
+          <v-card
+            color="grey-lighten-1"
+            :class="['ma-4', selectedClass]"
+            height="200"
+            width="100"
+            @click="toggle"
+          >
+            <div class="d-flex fill-height align-center justify-center">
+              <v-scale-transition>
+                <v-icon
+                  v-if="isSelected"
+                  color="white"
+                  size="48"
+                  icon="mdi-close-circle-outline"
+                ></v-icon>
+              </v-scale-transition>
+            </div>
+          </v-card>
+        </v-slide-group-item>
+      </v-slide-group>
+    </v-sheet>
 
-<script>
-  export default {
-    data: () => ({
-      length: 3,
-      onboarding: 0,
+  </template>
+  
+  <script>
+    import Event from './event.vue';
+
+    export default {
+        data: () => ({
+      model: null,
     }),
-  }
-</script>
-
-<style scoped>
-.window {
-    margin: 0 10%;
-}
-</style>
+    components: { Event}
+    }
+  </script>
+    <style scoped>
+    .mx-auto {
+        margin: 5% 10%;
+    }
+    </style>
+  
