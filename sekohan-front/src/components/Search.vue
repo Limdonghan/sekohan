@@ -1,41 +1,38 @@
 <template>
-    <v-card
-      class="search"
-      flat
-      width="70%"
-      height="100px"
-      img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg"
-    >
-      <v-toolbar
-        dense
-        floating
-      >
-        <v-text-field
-          hide-details
-          prepend-icon="mdi-magnify"
-          single-line
-        ></v-text-field>
-  
-        <v-btn icon>
-          <v-icon>mdi-crosshairs-gps</v-icon>
-        </v-btn>
-  
-        <v-btn icon>
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-      </v-toolbar>
-    </v-card>
-  </template>
+    <v-row justify="space-around">
+      <v-col cols="auto">
+        <v-dialog
+          transition="dialog-bottom-transition"
+          width="auto"
+        >
+          <template v-slot:activator="{ props }">
+            <v-btn
+              color="primary"
+              v-bind="props"
+            >From the bottom</v-btn>
+          </template>
+          <template v-slot:default="{ isActive }">
+            <v-card>
+              <v-toolbar
+                color="primary"
+                title="Opening from the bottom"
+              ></v-toolbar>
+              <v-card-text>
+                <div class="text-h2 pa-12">Hello world!</div>
+              </v-card-text>
+              <v-card-actions class="justify-end">
+                <v-btn
+                  variant="text"
+                  @click="isActive.value = false"
+                >Close</v-btn>
+              </v-card-actions>
+            </v-card>
+        </v-dialog>
+      </v-col>
+    </v-row>
+</template>
 
-<script>
-    export default {
-        
-    }
+<script setup>  
+
+
 </script>
-
-<style scoped>
-.search{
-    margin: 0 auto;
-    padding: 0;
-}
-</style>
