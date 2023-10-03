@@ -1,6 +1,6 @@
 <template>
   <header>
-    <table border="1 bold">
+    <table>
       <tr>
         <td style="width: 35%">
           <router-link to="/">
