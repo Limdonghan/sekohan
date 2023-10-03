@@ -1,15 +1,17 @@
 <template>
-    <Event />
-    <v-sheet 
+ <v-sheet 
       class="mx-auto"
       elevation="8"
       max-width="800"
+      flat
     >
+    <h1>추천상품</h1>
       <v-slide-group
         v-model="model"
         class="pa-4"
         selected-class="bg-success"
         show-arrows
+        
       >
         <v-slide-group-item
           v-for="n in 15"
@@ -38,21 +40,11 @@
       </v-slide-group>
     </v-sheet>
 
-  </template>
-  
-  <script>
-    import Event from './event.vue';
-
-    export default {
-        data: () => ({
+</template>
+<script>
+  export default {
+    data: () => ({
       model: null,
     }),
-    components: { Event}
-    }
-  </script>
-    <style scoped>
-    .mx-auto {
-        margin: 5% 10%;
-    }
-    </style>
-  
+  }
+</script>

@@ -31,6 +31,6 @@
 </script>
   <style scoped>
   .window {
-      margin: 0 10%;
+      margin: 3% 10%;
   }
   </style>
