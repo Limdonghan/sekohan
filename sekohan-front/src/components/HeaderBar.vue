@@ -17,9 +17,11 @@
           </router-link>
         </td>
         <td style="width: 10%">
-          <v-btn flat class="nav-button"  href="http://localhost:3000/product" :height="60">
-            <h1>product</h1>
-          </v-btn>
+          <RouterLink to="/product">
+            <v-btn flat class="nav-button" :height="60">
+              <h1>product</h1>
+            </v-btn>
+          </RouterLink>
         </td>
         <td style="width: 30%">
           <router-link to="/faq">

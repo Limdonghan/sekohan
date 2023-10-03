@@ -1,14 +1,12 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
-//  import Home from '../views/Home.vue';
-//  import Faq from '../views/Faq.vue';
 
 const Home = () => import('../views/Home.vue');
-//const Faq = () => import('../views/Faq.vue');
 
 const routes = [
   { path: '/', component: Home },
   { path: '/faq', component: () => import('../views/Faq.vue')},
+  { path: '/product', component: () => import('../views/Product.vue')}
 ]
 
 const router = createRouter({
