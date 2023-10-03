@@ -6,8 +6,8 @@
                 <td style="width: 10%;"><v-btn flat class="nav-button">
             <h1>HOME</h1>
           </v-btn></td>
-                <td style="width: 10%;"><v-btn flat class="nav-button">
-            <h1>CATEGORIES</h1>
+                <td style="width: 10%;"><v-btn flat class="nav-button"  href="http://localhost:3000/product">
+            <h1>product</h1>
           </v-btn></td>
                 <td style="width: 34%;"><v-btn flat class="nav-button">
             <h1>FAQ</h1>

@@ -1,14 +1,11 @@
 <template>
-  <v-app>
-    <default-bar />
-
-    <default-view />
-  </v-app>
+  <HeaderBar />
+  <Search />
 </template>
 
 <script setup>
-//  import DefaultBar from './AppBar.vue'
-  import DefaultView from './View.vue'
+import HeaderBar from '@/components/HeaderBar.vue'
+import Search from '@/components/Search.vue';
 </script>
 
 <style>
