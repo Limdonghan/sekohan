@@ -1,36 +1,49 @@
 <template>
-     <v-window class="window"
-      v-model="onboarding"
-      show-arrows="hover"
+  <v-carousel
+    cycle
+    height="400"
+    hide-delimiter-background
+    show-arrows="hover"
+  >
+    <v-carousel-item
+      v-for="(slide, i) in slides"
+      :key="i"
     >
-      <v-window-item
-        v-for="n in length"
-        :key="`card-${n}`"
+      <v-sheet
+        :color="colors[i]"
+        height="100%"
       >
-        <v-card
-          elevation="2"
-          height="200"
-          class="d-flex align-center justify-center ma-2"
-        >
-          <h1
-            class="text-h2"
-          >
-            Slide {{ n }}
-          </h1>
-        </v-card>
-      </v-window-item>
-    </v-window>
+        <div class="d-flex fill-height justify-center align-center">
+          <div class="text-h2">
+            {{ slide }} Slide
+          </div>
+        </div>
+      </v-sheet>
+    </v-carousel-item>
+  </v-carousel>
 </template>
 <script>
-    export default {
-      data: () => ({
-        length: 3,
-        onboarding: 0,
-      }),
-    }
+  export default {
+    data () {
+      return {
+        colors: [
+          'indigo',
+          'warning',
+          'pink darken-2',
+          'red lighten-1',
+          'deep-purple accent-4',
+        ],
+        slides: [
+          'First',
+          'Second',
+          'Third',
+          'Fourth',
+          'Fifth',
+        ],
+      }
+    },
+  }
 </script>
   <style scoped>
-  .window {
-      margin: 3% 10%;
-  }
+
   </style>

@@ -2,15 +2,19 @@
     <header>
         <table>
             <tr>
-                <td style="width: 35%;">
+                <td style="width: 35%;"> 
+                  <router-link to="/">
                     <v-btn :height="60" flat> 
                       <v-img width="160" src="@/assets/sekohan_logo.png" /> 
                     </v-btn>
+                  </router-link>
                 </td>
                 <td style="width: 10%;">
-                  <v-btn flat class="nav-button" :height="60">
-                   <h1>HOME</h1>
-                  </v-btn>
+                  <router-link to="/">
+                    <v-btn flat class="nav-button" :height="60">
+                      <h1>HOME</h1>
+                    </v-btn>
+                  </router-link>
                 </td>
                 <td style="width: 10%;">
                   <v-btn flat class="nav-button" :height="60">
@@ -18,9 +22,11 @@
                   </v-btn>
                 </td>
                 <td style="width: 34%;">
-                  <v-btn flat class="nav-button" :height="60">
-                    <h1>FAQ</h1>
-                  </v-btn>
+                  <router-link to="/faq">
+                    <v-btn flat class="nav-button" :height="60">
+                      <h1>FAQ</h1>
+                    </v-btn>
+                  </router-link>
                 </td>
                 <td>
                   <v-btn icon flat>
@@ -66,7 +72,7 @@ export default {
 <style>
 header {
     padding: 30px;
-    border-bottom: 1px solid #303030;
+    
 }
 
 header table {
