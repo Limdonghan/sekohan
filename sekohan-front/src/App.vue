@@ -1,8 +1,19 @@
 <template>
-  
-  <router-view />
+    <HeaderBar />
+    <router-view></router-view>
+    <Footers />
 </template>
 
-<script setup>
-  //
+<script>
+import Footers from '@/components/Footers.vue';
+import HeaderBar from '@/components/HeaderBar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    HeaderBar,
+    Footers,
+  }
+}
+
 </script>

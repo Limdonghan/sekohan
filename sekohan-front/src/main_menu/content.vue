@@ -8,7 +8,7 @@
   <script>
     import Event from '@/main_menu/event.vue';
     import Popularity from '@/main_menu/popularity.vue';
-    import Views from '@/main_menu/Views.vue'; 
+    import Views from '@/main_menu/views.vue'; 
 
     export default {
         data: () => ({
