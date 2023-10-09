@@ -1,6 +1,7 @@
  <template>  
  <v-row>
   <v-col cols="12" sm="2">
+    
     <v-card>
   </v-card>
         </v-col>
@@ -28,7 +29,7 @@
       <v-container  class="text-center">
         <v-row>
           <v-col
-            v-for="{ src, title, subtitle, price } in cards"
+            v-for="{ src, title, subtitle, price, url } in cards"
             :key="title"
             cols="12"
             md="6"
@@ -62,7 +63,7 @@
           scrim="#958648"
           class="align-center justify-center"
         >
-          <v-btn href="">상세 보기</v-btn>
+          <v-btn :href="url">상세 보기</v-btn>
         </v-overlay>
       </v-card>
     </v-hover>
@@ -117,6 +118,7 @@
           subtitle: 'Happy Foods',
           price: '1000',
           src: 'https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png',
+          url: '/product/page'
         },
         {
           title: 'Salted Caramel Swirl Ice Cream',

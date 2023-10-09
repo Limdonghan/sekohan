@@ -1,86 +1,57 @@
 <template>
-    <v-treeview
-      activatable
-      color="warning"
-      :items="items"
-    ></v-treeview>
-  </template>
+  <v-card>
+    <v-tabs
+      v-model="tab"
+      background-color="deep-purple accent-4"
+      centered
+      dark
+      icons-and-text
+    >
+      <v-tabs-slider></v-tabs-slider>
+
+      <v-tab href="#tab-1">
+        Recents
+        <v-icon>mdi-phone</v-icon>
+      </v-tab>
+
+      <v-tab href="#tab-2">
+        Favorites
+        <v-icon>mdi-heart</v-icon>
+      </v-tab>
+
+      <v-tab href="#tab-3">
+        Nearby
+        <v-icon>mdi-account-box</v-icon>
+      </v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item
+        v-for="i in 3"
+        :key="i"
+        :value="'tab-' + i"
+      >
+        <v-card v-if="i === '1'" flat>
+          <v-card-text>{{ text }}</v-card-text>
+        </v-card>
+        <v-card v-else-if="i === '2'" flat>
+          <v-card-text>{{ text }}</v-card-text>
+        </v-card>
+        <v-card v-else="i === '3'" flat>
+          <v-card-text>{{ text }}</v-card-text>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
+  </v-card>
+</template>
 
 <script>
-export default {
-  data: () => ({
-    items: [
-      {
-        id: 1,
-        name: 'Applications :',
-        children: [
-          { id: 2, name: 'Calendar : app' },
-          { id: 3, name: 'Chrome : app' },
-          { id: 4, name: 'Webstorm : app' },
-        ],
-      },
-      {
-        id: 5,
-        name: 'Documents :',
-        children: [
-          {
-            id: 6,
-            name: 'vuetify :',
-            children: [
-              {
-                id: 7,
-                name: 'src :',
-                children: [
-                  { id: 8, name: 'index : ts' },
-                  { id: 9, name: 'bootstrap : ts' },
-                ],
-              },
-            ],
-          },
-          {
-            id: 10,
-            name: 'material2 :',
-            children: [
-              {
-                id: 11,
-                name: 'src :',
-                children: [
-                  { id: 12, name: 'v-btn : ts' },
-                  { id: 13, name: 'v-card : ts' },
-                  { id: 14, name: 'v-window : ts' },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-      {
-        id: 15,
-        name: 'Downloads :',
-        children: [
-          { id: 16, name: 'October : pdf' },
-          { id: 17, name: 'November : pdf' },
-          { id: 18, name: 'Tutorial : html' },
-        ],
-      },
-      {
-        id: 19,
-        name: 'Videos :',
-        children: [
-          {
-            id: 20,
-            name: 'Tutorials :',
-            children: [
-              { id: 21, name: 'Basic layouts : mp4' },
-              { id: 22, name: 'Advanced techniques : mp4' },
-              { id: 23, name: 'All about app : dir' },
-            ],
-          },
-          { id: 24, name: 'Intro : mov' },
-          { id: 25, name: 'Conference introduction : avi' },
-        ],
-      },
-    ],
-  }),
-}
+  export default {
+    data () {
+      return {
+        tab: null,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      }
+    },
+  }
 </script>
