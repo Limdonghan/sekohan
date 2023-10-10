@@ -74,7 +74,7 @@
           <v-container class="text-center">
             <v-row>
               <v-col
-                v-for="{ src, title, subtitle, price, url } in cards"
+                v-for="item in pro"
                 :key="title"
                 cols="12"
                 md="6"
@@ -88,15 +88,15 @@
                     max-width="270"
                     v-bind="props"
                   >
-                    <v-img min-height="245" max-height="245" :src="src"></v-img>
+                    <v-img min-height="245" max-height="245" :src="item.src"></v-img>
 
                     <v-card-text style="position ">
                       <v-list-item
-                        :title="title"
-                        :subtitle="subtitle"
+                        :title="item.title"
+                        :subtitle="item.subtitle"
                         class="px-0"
                       ></v-list-item>
-                      <v-list-item :subtitle="price + '원'"></v-list-item>
+                      <v-list-item :subtitle="item.price + '원'"></v-list-item>
                     </v-card-text>
 
                     <v-overlay
@@ -105,7 +105,7 @@
                       scrim="#958648"
                       class="align-center justify-center"
                     >
-                      <v-btn :href="url">상세 보기</v-btn>
+                      <v-btn :href="item.url">상세 보기</v-btn>
                     </v-overlay>
                   </v-card>
                 </v-hover>
@@ -137,6 +137,8 @@
 </template>
 
 <script>
+import pro from "@/components/productpage/category.json";
+
 export default {
   data() {
     return {
@@ -144,62 +146,12 @@ export default {
     };
   },
   data: () => ({
+    pro: pro,
     open: ["Users"],
-    admins: [["1", "/product/"], ["2"]],
-    cruds: [["3"], ["4"], ["5"], ["6"]],
+    admins: [["삼성", "/product/"], ["애플"]],
+    cruds: [["유아"], ["어린이"], ["여성"], ["남성"]],
     select: "최신순",
     options: ["최신순", "가격순", ""],
-    cards: [
-      {
-        title: "Homemade Dulce de Leche Ice Cream with Chocolate Chips",
-        subtitle: "Happy Foods",
-        price: "1000",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png",
-        url: "/product/page",
-      },
-      {
-        title: "Salted Caramel Swirl Ice Cream",
-        subtitle: "Stone Kitchen",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/salted-caramel-ice-cream.png",
-        price: "2000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "The Sweeter Side",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "3000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "The Sweeter Side",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "4000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "The Sweeter Side",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "5000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "The Sweeter Side",
-        src: "src/assets/sekohan_logo.png",
-        price: "6000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "The Sweeter Side",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "7000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "The Sweeter Side",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "8000",
-      },
-    ],
     loading: true,
   }),
 };

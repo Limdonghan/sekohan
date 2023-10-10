@@ -1,0 +1,51 @@
+[
+        {
+          "title": "Homemade Dulce de Leche Ice Cream with Chocolate Chips",
+          "subtitle": "Happy Foods",
+          "price": "1000",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png",
+          "url": "/product/page"
+        },
+        {
+          "title": "Salted Caramel Swirl Ice Cream",
+          "subtitle": "Stone Kitchen",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/salted-caramel-ice-cream.png",
+          "price": "2000"
+        },
+        {
+          "title": "Peanut Butter No-Churn Ice Cream",
+          "subtitle": "The Sweeter Side",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
+          "price": "3000"
+        },
+        {
+          "title": "Peanut Butter No-Churn Ice Cream",
+          "subtitle": "The Sweeter Side",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
+          "price": "4000"
+        },
+        {
+          "title": "Peanut Butter No-Churn Ice Cream",
+          "subtitle": "The Sweeter Side",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
+          "price": "5000"
+        },
+        {
+         "title": "Peanut Butter No-Churn Ice Cream",
+         "subtitle": "The Sweeter Side",
+          "src": "src/assets/sekohan_logo.png",
+          "price": "6000"
+        },
+        {
+          "title": "Peanut Butter No-Churn Ice Cream",
+          "subtitle": "The Sweeter Side",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
+          "price": "7000"
+        },
+        {
+          "title": "Peanut Butter No-Churn Ice Cream",
+          "subtitle": "The Sweeter Side",
+          "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
+          "price": "8000"
+        }
+]

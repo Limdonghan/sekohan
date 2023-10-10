@@ -41,7 +41,7 @@
                 <svg-icon type="mdi" :path="path" />
               </v-btn>
             </template>
-            <v-card style="max-width: 270px; max-height: 200px;
+            <v-card style="max-width: 280px; max-height: 200px;
                            min-width: 270px; min-height: 200px;"
                            v-for="{ avatar, nickname, } in useritem">
               <v-row >
