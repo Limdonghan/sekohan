@@ -1,7 +1,50 @@
  <template>  
  <v-row>
   <v-col cols="12" sm="2">
-    
+    <v-list v-model:opened="open" style="margin-top: 15%;">
+
+      <v-list-group value="Users">
+        <template v-slot:activator="{ props }">
+          <v-list-item
+            v-bind="props"
+            title="대분류"
+          ></v-list-item>
+        </template>
+
+        <v-list-group value="Admin">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              v-bind="props"
+              title="중분류"
+            ></v-list-item>
+          </template>
+
+          <v-list-item
+            v-for="([title, href], i) in admins"
+            :key="i"
+            :title="title"
+            :value="title"
+            :href="href"
+          ></v-list-item>
+        </v-list-group>
+
+        <v-list-group value="Actions">
+          <template v-slot:activator="{ props }">
+            <v-list-item
+              v-bind="props"
+              title="중분류"
+            ></v-list-item>
+          </template>
+
+          <v-list-item
+            v-for="([title,], i) in cruds"
+            :key="i"
+            :value="title"
+            :title="title"
+          ></v-list-item>
+        </v-list-group>
+      </v-list-group>
+    </v-list>
     <v-card>
   </v-card>
         </v-col>
@@ -105,7 +148,17 @@
         page: 1,
       }},
     data: () => ({
-      
+      open: ['Users'],
+      admins: [
+        ['1',  '/product/'],
+        ['2', ],
+      ],
+      cruds: [
+        ['3', ],
+        ['4', ],
+        ['5', ],
+        ['6', ],
+      ],
       select:'최신순',
             options: [
                 '최신순',
