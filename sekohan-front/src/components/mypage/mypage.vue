@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import mysell from "@/components/custservice/mysell.vue";
-import ordersold from "@/components/custservice/order_soldout.vue";
-import wishlist from "@/components/custservice/wish_list.vue";
+import mysell from "@/components/mypage/mysell.vue";
+import ordersold from "@/components/mypage/order_soldout.vue";
+import wishlist from "@/components/mypage/wish_list.vue";
 
 export default {
   data: () => ({

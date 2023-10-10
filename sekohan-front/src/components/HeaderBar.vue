@@ -42,8 +42,9 @@
               </v-btn>
             </template>
             <v-card style="max-width: 270px; max-height: 200px;
-                           min-width: 270px; min-height: 200px;">
-              <v-row>
+                           min-width: 270px; min-height: 200px;"
+                           v-for="{ avatar, nickname, } in useritem">
+              <v-row >
                 <v-col cols="12" sm="1"></v-col>
                 <v-col cols="12" sm="3">
                   <a href="http://localhost:3000/mypage">
