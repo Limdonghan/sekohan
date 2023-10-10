@@ -1,16 +1,14 @@
 <template>
-    <productlist />
+  <productlist />
+</template>
 
-  </template>
-  
-  <script>
-    import productlist from '@/productpage/productlist.vue';
+<script>
+import productlist from "@/productpage/productlist.vue";
 
-    export default {
-        data: () => ({
-      model: null,
-    }),
-    components: { productlist, category}
-
-    }
-  </script>
+export default {
+  data: () => ({
+    model: null,
+  }),
+  components: { productlist, category },
+};
+</script>

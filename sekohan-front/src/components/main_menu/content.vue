@@ -1,24 +1,23 @@
 <template>
-    <Event />
-    <Popularity />
-    <Views />
+  <Event />
+  <Popularity />
+  <Views />
+</template>
 
-  </template>
-  
-  <script>
-    import Event from '@/components/main_menu/event.vue';
-    import Popularity from '@/components/main_menu/popularity.vue';
-    import Views from '@/components/main_menu/views.vue'; 
+<script>
+import Event from "@/components/main_menu/event.vue";
+import Popularity from "@/components/main_menu/popularity.vue";
+import Views from "@/components/main_menu/views.vue";
 
-    export default {
-        data: () => ({
-      model: null,
-    }),
-    components: { Event, Popularity, Views }
-    }
-  </script>
-    <style scoped>
-    .mx-auto {
-        margin: 5% 10%;
-    }
-    </style>
+export default {
+  data: () => ({
+    model: null,
+  }),
+  components: { Event, Popularity, Views },
+};
+</script>
+<style scoped>
+.mx-auto {
+  margin: 5% 10%;
+}
+</style>
