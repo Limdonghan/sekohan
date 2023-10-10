@@ -5,9 +5,10 @@ const Home = () => import('../views/Home.vue');
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/faq', component: () => import('../views/Faq.vue')},
+  { path: '/faq', component: () => import('../components/custservice/Faq.vue')},
   { path: '/product', component: () => import('../views/Product.vue')},
-  { path: '/product/page', component: () => import('../productpage/productpage.vue')}
+  { path: '/product/page', component: () => import('../components/productpage/productpage.vue')},
+  { path: '/mypage', component: () => import('../components/mypage/mypage.vue')},
 ]
 
 const router = createRouter({

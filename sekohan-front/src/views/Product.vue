@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import product from "@/productpage/productlist.vue";
+import product from "@/components/productpage/productlist.vue";
 </script>
 
 <style></style>

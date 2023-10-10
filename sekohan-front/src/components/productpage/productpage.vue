@@ -71,14 +71,14 @@
                         <v-row>
                             <v-col
                             cols="12"
-                        sm="3">
+                        sm="2">
                         <v-list-item-avatar>          
-                      <v-img  style="max-width:3100%; max-height: 100%;" :src="item.avatar"></v-img>
+                      <v-img  style="max-width:70%; max-height: 70%;" :src="item.avatar"></v-img>
                     </v-list-item-avatar>
                   </v-col>
                   <v-col
                             cols="12"
-                        sm="9">
+                        sm="10">
                       <v-list-item-title style="margin-bottom: 10px;" v-html="item.title"></v-list-item-title>
                     </v-col>
                     </v-row>

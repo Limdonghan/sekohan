@@ -34,8 +34,8 @@
           <Search />
         </td>
         <td>
-          <v-btn icon flat>
-            <svg-icon type="mdi" :path="path" />
+          <v-btn icon flat href="http://localhost:3000/mypage">
+            <svg-icon type="mdi" :path="path"/>
           </v-btn>
         </td>
         <td>

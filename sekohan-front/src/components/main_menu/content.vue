@@ -6,9 +6,9 @@
   </template>
   
   <script>
-    import Event from '@/main_menu/event.vue';
-    import Popularity from '@/main_menu/popularity.vue';
-    import Views from '@/main_menu/views.vue'; 
+    import Event from '@/components/main_menu/event.vue';
+    import Popularity from '@/components/main_menu/popularity.vue';
+    import Views from '@/components/main_menu/views.vue'; 
 
     export default {
         data: () => ({
