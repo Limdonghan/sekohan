@@ -1,13 +1,9 @@
 <template>
-  <HeaderBar />
-  <product />
-  <Footers />
+  <Category />
 </template>
 
 <script setup>
-import Footers from "@/components/Footers.vue";
-import HeaderBar from "@/components/HeaderBar.vue";
-import product from "@/components/product.vue";
+import Category from "@/components/productpage/productlist.vue";
 </script>
 
 <style></style>
