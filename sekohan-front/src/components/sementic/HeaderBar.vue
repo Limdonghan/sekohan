@@ -17,11 +17,11 @@
           </router-link>
         </td>
         <td style="width: 10%">
-          <RouterLink to="/product">
+          <router-link to="/product">
             <v-btn flat class="nav-button" :height="60">
               <h1>product</h1>
             </v-btn>
-          </RouterLink>
+          </router-link>
         </td>
         <td style="width: 30%">
           <router-link to="/faq">

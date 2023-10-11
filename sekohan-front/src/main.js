@@ -19,22 +19,24 @@ registerPlugins(app)
 
 app.mount('#app')
 
-createApp(App).use(router).mount('#app');
+createApp(App)
 
-new Vue({
-    vuetify: new Vuetify(opts),
-    render: (h) => h(App)
-  }).$mount("#app");
+// .use(router).mount('#app');
+
+// new Vue({
+//     vuetify: new Vuetify(opts),
+//     render: (h) => h(App)
+//   }).$mount("#app");
   
-  const opts = {
-    icons: {
-      iconfont: "mdi"
-    }
-  };
-  Vue.use(Vuetify);
+//   const opts = {
+//     icons: {
+//       iconfont: "mdi"
+//     }
+//   };
+//   Vue.use(Vuetify);
   
-  new Vue({
-    vuetify: new Vuetify(opts),
-    render: (h) => h(App)
-  }).$mount("#app");
+//   new Vue({
+//     vuetify: new Vuetify(opts),
+//     render: (h) => h(App)
+//   }).$mount("#app");
   

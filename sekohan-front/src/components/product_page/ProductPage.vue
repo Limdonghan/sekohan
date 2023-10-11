@@ -161,12 +161,6 @@ export default {
         {
           src: "/src/assets/1-2.jpg",
         },
-        {
-          src: "/src/assets/1-3.jpg",
-        },
-        {
-          src: "/src/assets/1-4.jpg",
-        },
       ],
     };
   },
