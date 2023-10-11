@@ -17,11 +17,7 @@
         </v-toolbar>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="green-darken-1"
-            variant="text"
-            @click="dialog = false"
-          >
+          <v-btn color="green-darken-1" variant="text" @click="dialog = false">
             Close
           </v-btn>
         </v-card-actions>

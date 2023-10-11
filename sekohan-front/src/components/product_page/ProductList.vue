@@ -138,8 +138,7 @@
 </template>
 
 <script>
-import pro_sample from "@/components/productpage/product_sample.json";
-// import category_sample from "@/components/productpage/category_sample.json";
+import pro_sample from "@/assets/json/pro_sample.json";
 
 export default {
   data() {

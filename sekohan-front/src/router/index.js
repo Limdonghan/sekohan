@@ -5,11 +5,11 @@ const Home = () => import('../views/Home.vue');
 
 const routes = [
   { path: '/', component: Home },
-  { path: '/faq', component: () => import('../components/custservice/Faq.vue')},
+  { path: '/faq', component: () => import('../views/Faq.vue')},
   { path: '/product', component: () => import('../views/Product.vue')},
-  { path: '/product/page', component: () => import('../components/productpage/productpage.vue')},
-  { path: '/mypage', component: () => import('../components/mypage/mypage.vue')},
-  { path: '/upload', component: () => import('../components/mypage/upload.vue')}
+  { path: '/product/page', component: () => import("@/components/product_page/ProductPage.vue")},
+  // { path: '/mypage', component: () => import("@/components/my_page/MyPage.vue")},
+  // { path: '/upload', component: () => import("@/components/my_page/Upload.vue")}
 ]
 
 const router = createRouter({

@@ -21,7 +21,7 @@
 
 <script>
 import axios from "axios";
-import faqData from "@/assets/faq.json"
+import faqData from "@/assets/json/faq_sample.json"
 export default {
   name: "Faq",
   data() {
