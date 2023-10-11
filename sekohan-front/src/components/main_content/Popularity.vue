@@ -8,23 +8,21 @@
       show-arrows
     >
       <v-slide-group-item
-        v-for="n in 15"
-        :key="n"
+        v-for="i in data"
+        :key="i"
         v-slot="{ isSelected, toggle, selectedClass }"
       >
         <v-container fluid style="min-height: 100px">
           <v-card class="mx-auto-content" height="230" width="150" @click="">
             <v-img
-              src="@/assets/sekohan_logo.png"
+              :src="i.src"
               class="align-end text-white"
               height="160"
               width="150"
             >
             </v-img>
-            <v-card-title>상품 이름</v-card-title>
-            <v-card-text>
-              <div>가격</div>
-            </v-card-text>
+              <v-list-item >{{ i.title }}</v-list-item>
+              <v-list-item >{{ i.price }}원</v-list-item>
           </v-card>
         </v-container>
         <div class="d-flex fill-height align-center justify-center">
@@ -42,9 +40,17 @@
   </v-sheet>
 </template>
 <script>
+import pro_sample from "@/assets/json/pro_sample.json";
+
 export default {
-  data: () => ({
-    model: null,
-  }),
+  data() {
+    return {
+      data: pro_sample,
+      model: null,
+    };
+  },
+  // data: () => ({
+  //   model: null,
+  // }),
 };
 </script>

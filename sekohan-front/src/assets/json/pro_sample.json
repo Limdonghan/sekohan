@@ -1,8 +1,8 @@
 [
         {
-          "title": "상품 1",
+          "title": "상품 이름",
           "subtitle": "서브 이름",
-          "price": "100000원",
+          "price": "10000",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png",
           "url": "/product/page"
         },

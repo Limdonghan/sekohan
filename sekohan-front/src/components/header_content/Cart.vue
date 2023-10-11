@@ -1,5 +1,5 @@
 <template>
-  <v-btn flat>
+  <v-btn icon flat>
     <svg-icon type="mdi" :path="path" />
   </v-btn>
 </template>
