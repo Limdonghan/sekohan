@@ -16,8 +16,9 @@
                   size="small"
                   color="blue"
                   style="margin-top: 9px; max-width: 100%"
-                  ><v-icon color="yellow" icon="mdi-plus" href=""></v-icon>상품
-                  등록</v-btn
+                  href="http://localhost:3000/upload"
+                  ><v-icon color="yellow" icon="mdi-plus" />상품등록
+                </v-btn
                 >
               </v-col>
             </v-row>
