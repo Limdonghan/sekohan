@@ -46,7 +46,7 @@
   <div class="text-center">
     <v-pagination
       v-model="page"
-      :length="11"
+      :length="1"
       :total-visible="6"
       prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right"

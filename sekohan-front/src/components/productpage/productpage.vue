@@ -159,13 +159,13 @@
         item: [
                 {
                     avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-                    title: 'LOST유저',
+                    title: 'LOST',
                     subtitle: "사용",
                     time: "10.09 20:51:00"
                 },
                 {
                     avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-                    title: '포자시치',
+                    title: 'ㅇㅅㅇ',
                     subtitle: "삽니당",
                     time: "10.09 20:53:48"
                 },
@@ -177,7 +177,7 @@
                 },
                 {
                     avatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-                    title: '포자시치',
+                    title: 'ㅇㅅㅇ',
                     subtitle: "ㅠㅠ",
                     time: "10.09 21:05:54"
                 },

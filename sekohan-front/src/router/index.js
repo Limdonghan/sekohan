@@ -9,6 +9,7 @@ const routes = [
   { path: '/product', component: () => import('../views/Product.vue')},
   { path: '/product/page', component: () => import('../components/productpage/productpage.vue')},
   { path: '/mypage', component: () => import('../components/mypage/mypage.vue')},
+  { path: '/upload', component: () => import('../components/mypage/proupload.vue')}
 ]
 
 const router = createRouter({
