@@ -119,49 +119,14 @@
   </v-row>
 </template>
 <script>
+import comments_sample from "@/assets/json/comment_sample.json";
+import profiles_sample from "@/assets/json/user_profile_sample.json";
+
 export default {
   data() {
     return {
-      item: [
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-          title: "LOST",
-          subtitle: "사용",
-          time: "10.09 20:51:00",
-        },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-          title: "ㅇㅅㅇ",
-          subtitle: "삽니당",
-          time: "10.09 20:53:48",
-        },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-          title: "판매자",
-          subtitle: "LOST님이랑 대화중이에요",
-          time: "10.09 21:01:38",
-        },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-          title: "ㅇㅅㅇ",
-          subtitle: "ㅠㅠ",
-          time: "10.09 21:05:54",
-        },
-        {
-          avatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-          title: "판매자",
-          subtitle: "-거래완료-",
-          time: "10.09 22:51:31",
-        },
-      ],
-      items: [
-        {
-          src: "/src/assets/1-1.jpg",
-        },
-        {
-          src: "/src/assets/1-2.jpg",
-        },
-      ],
+      comment_sample: comments_sample,
+      profile_sample: profiles_sample,
     };
   },
 };
