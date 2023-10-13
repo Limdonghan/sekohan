@@ -9,7 +9,6 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiCartOutline } from "@mdi/js";
 
 export default {
-  name: "my-component",
   components: {
     SvgIcon,
   },

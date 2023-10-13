@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="dialog" persistent width="auto">
+    <v-dialog v-model="dialog" activator="parent" width="auto">
       <template v-slot:activator="{ props }">
         <v-btn v-bind="props" icon flat>
           <svg-icon type="mdi" :path="path" />

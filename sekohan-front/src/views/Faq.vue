@@ -22,7 +22,7 @@
 <script>
 import faqData from "@/assets/json/faq_sample.json"
 export default {
-  name: "Faq",
+
   data() {
     return {
       data: faqData,

@@ -12,14 +12,14 @@
       elevation="8"
       max-width="448"
       rounded="lg"
+      
     >
       <div
         class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
       >
         User ID
       </div>
-      <v-text-field density="compact" placeholder="User ID" variant="outlined">
-        <svg-icon type="mdi" :path="mdiAccountOutline" />
+      <v-text-field density="compact" placeholder="User ID" variant="outlined" prepend-inner-icon="mdi-account">
       </v-text-field>
 
       <div
@@ -34,9 +34,9 @@
         density="compact"
         placeholder="Enter your password"
         variant="outlined"
+        prepend-inner-icon="mdi-lock-outline"
         @click:append-inner="visible = !visible"
       >
-        <svg-icon type="mdi" :path="mdiLockOutline"></svg-icon>
       </v-text-field>
 
       <v-card class="mb-12" color="surface-variant" variant="tonal"> </v-card>
@@ -55,7 +55,7 @@
             Sign UP
           </v-btn>
         </router-link>
-        <router-link to="/signup">
+        <router-link to="/help">
           <v-btn
             class="text-blue text-decoration-none"
             rel="noopener noreferrer"
@@ -65,7 +65,7 @@
             Forgot ID
           </v-btn>
         </router-link>
-        <router-link to="/signup">
+        <router-link to="/help">
           <v-btn
             class="text-blue text-decoration-none"
             rel="noopener noreferrer"
@@ -81,28 +81,9 @@
   <br /><br /><br /><br /><br />
 </template>
 <script>
-import SvgIcon from "@jamescoyle/vue-icon";
-import { mdiAccountOutline } from "@mdi/js";
-import { mdiLockOutline } from "@mdi/js";
 export default {
-  name: "my-component",
-  components: {
-    SvgIcon,
-  },
-  data() {
-    return {
-      mdiAccountOutline: mdiAccountOutline,
-      mdiLockOutline: mdiLockOutline,
-    };
-  },
-  //   data: () => ({
-  //     visible: false,
-  //   }),
+    data: () => ({
+      visible: false,
+    }),
 };
 </script>
-<style>
-svg {
-  margin-top: 2px;
-  margin-right: 4px;
-}
-</style>
