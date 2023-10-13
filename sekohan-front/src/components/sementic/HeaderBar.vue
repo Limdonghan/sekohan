@@ -5,7 +5,7 @@
         <td style="width: 35%">
           <router-link to="/">
             <v-btn :height="60" flat>
-              <v-img width="160" src="@/assets/sekohan_logo.png" />
+              <v-img width="160" src="@/assets/img/sekohan_logo.png" />
             </v-btn>
           </router-link>
         </td>

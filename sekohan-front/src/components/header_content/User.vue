@@ -17,14 +17,16 @@
       <v-row>
         <v-col cols="12" sm="1"></v-col>
         <v-col cols="12" sm="3">
-          <a href="http://localhost:3000/mypage">
-            <v-img
-              style="min-height: 70px; min-width: 70px; margin-top: 10px"
-              src="@/assets/1-2.jpg"
-            ></v-img>
-          </a>
+          <router-link to="/mypage">
+            <v-btn>
+              <v-img
+                style="min-height: 70px; min-width: 70px; margin-top: 10px"
+                src="@/assets/img/1-2.jpg"
+              ></v-img>
+            </v-btn>
+          </router-link>
         </v-col>
-        <v-col cols="12" sm="7" style="margin-top: 35px"> LOST유저 </v-col>
+        <v-col cols="12" sm="7" style="margin-top: 35px"> userNickName </v-col>
       </v-row>
       <v-row>
         <v-col cols="12" sm="1"></v-col>
@@ -58,7 +60,7 @@ export default {
       useritem: [
         {
           avatar: "@/src/assets/1-1.jpg",
-          nickname: "LOST유저",
+          nickname: "userNickName22",
         },
       ],
       path: mdiAccount,
