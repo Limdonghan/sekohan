@@ -8,7 +8,7 @@ const routes = [
   { path: '/product', component: () => import('../views/Product.vue')},
   { path: '/faq', component: () => import('../views/Faq.vue')},
   { path: '/product/page', component: () => import("@/components/product_page/ProductPage.vue")},
-  { path: '/mypage', component: () => import("@/components/my_page/MyPage.vue")}
+  { path: '/mypage', component: () => import("../components/my_page/MyPage")}
   // { path: '/upload', component: () => import("@/components/my_page/Upload.vue")}
 ]
 

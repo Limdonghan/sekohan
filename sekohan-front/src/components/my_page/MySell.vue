@@ -1,34 +1,32 @@
 <template>
   <v-row>
-    <v-col v-for="pro_data in data" :key="pro_data">
+    <v-col v-for="pro_data in data.slice(0,5)" :key="pro_data">
       <v-card
         class="mx-auto"
-        min-height="200"
-        max-height="200"
+        min-height="150"
+        max-height="150"
         max-width="800"
         v-bind="props"
       >
         <v-row>
           <v-col cols="12" sm="4">
-            <!-- <v-img
-              :src="pro_data.src"
-              min="180"
-              max="180"
+            <v-img
+              width="300"
               style="margin-top: 10px"
-            ></v-img> -->
+              :src="pro_data.src"
+            ></v-img>
           </v-col>
-          <v-col cols="12" sm="5">
-            <v-card-text style="position ">
+          <v-col cols="12" sm="4">
+            <v-card-text style="position">
               <v-list-item
                 :title="pro_data.title"
                 :subtitle="pro_data.subtitle"
-                :href="pro_data.url"
               ></v-list-item>
-              <v-list-item>{{ pro_data.price }}</v-list-item>
+              <v-list-item>{{ pro_data.price }}￥</v-list-item>
             </v-card-text>
           </v-col>
-          <v-col cols="12" sm="3" style="align=right;">
-            <v-btn size="small" color="blue" style="margin-top:150px; ali"
+          <v-col cols="12" sm="4" style="align=right;">
+            <v-btn size="small" color="blue" style="margin-top:100px;" :href="pro_data.url"
               >게시글수정</v-btn>
           </v-col>
         </v-row>
