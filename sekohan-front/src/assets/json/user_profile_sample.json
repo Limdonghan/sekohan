@@ -1,8 +1,6 @@
 [
     {
-      "img": "/src/assets/1-1.jpg"
-    },
-    {
-      "img": "/src/assets/1-2.jpg"
+      "username" : "Mokoko",
+      "img": "/src/assets/img/1-1.jpg"
     }
   ]

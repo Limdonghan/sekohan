@@ -7,9 +7,9 @@
           <v-tabs v-model="tab" bg-color="primary">
             <v-row>
               <v-col cols="12" sm="10">
-                <v-tab value="one">판매중</v-tab>
-                <v-tab value="two">거래완료</v-tab>
-                <v-tab value="three">찜목록</v-tab>
+                <v-tab value="1">판매중</v-tab>
+                <!-- <v-tab value="two">거래완료</v-tab>
+                <v-tab value="three">찜목록</v-tab> -->
               </v-col>
               <v-col cols="2">
                 <v-btn
@@ -26,15 +26,15 @@
         </v-col>
         <v-card-text>
           <v-window v-model="tab">
-            <v-window-item value="one">
+            <v-window-item value="1">
               <mysell />
             </v-window-item>
-            <v-window-item value="two">
+            <!-- <v-window-item value="two">
               <ordersold />
             </v-window-item>
             <v-window-item value="three">
               <wishlist />
-            </v-window-item>
+            </v-window-item> -->
           </v-window>
         </v-card-text>
       </v-card>
@@ -43,15 +43,23 @@
 </template>
 
 <script>
+
 import mysell from "@/components/mypage/mysell.vue";
-import ordersold from "@/components/mypage/order_soldout.vue";
-import wishlist from "@/components/mypage/wish_list.vue";
+// import ordersold from "@/components/mypage/order_soldout.vue";
+// import wishlist from "@/components/mypage/wish_list.vue";
+import pro_sample from "@/assets/json/pro_sample.json";
 
 export default {
-  data: () => ({
-    model: null,
-    tab: null,
-  }),
-  components: { mysell, ordersold, wishlist },
+  data() {
+    return {
+      data: pro_sample,
+      model: null
+    }
+  },
+  // data: () => ({
+  //   model: null,
+  //   tab: null
+  // }),
+  components: { mysell },
 };
 </script>

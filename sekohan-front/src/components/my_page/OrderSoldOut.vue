@@ -1,12 +1,6 @@
 <template>
   <v-row>
-    <v-col
-      v-for="{ src, title, subtitle, price, url } in cards"
-      :key="title"
-      cols="12"
-      md="6"
-      lg="6"
-    >
+    <v-col v-for="i in data" :key="i">
       <v-card
         class="mx-auto"
         min-height="200"
@@ -17,21 +11,21 @@
         <v-row>
           <v-col cols="12" sm="4">
             <v-img
+              :src="i.src"
               min-height="180"
               max-height="180"
               style="margin-top: 10px"
-              :src="src"
             ></v-img>
           </v-col>
           <v-col cols="12" sm="5">
             <v-card-text style="position ">
               <v-list-item
-                :title="title"
-                :subtitle="subtitle"
-                :href="url"
+                :title="i.title"
+                :subtitle="i.subtitle"
+                :href="i.url"
                 class="px-0"
               ></v-list-item>
-              <v-list-item :subtitle="price + '원'"></v-list-item>
+              <v-list-item :subtitle="i.price + '원'"></v-list-item>
             </v-card-text>
           </v-col>
           <v-col cols="12" sm="3" style="align=right; ">
@@ -59,40 +53,15 @@
 </template>
 
 <script>
+import pro_sample from "@/assets/json/pro_sample.json";
 export default {
   data() {
     return {
+      data: pro_sample,
       page: 1,
     };
   },
   data: () => ({
-    cards: [
-      {
-        title: "초코칩 팔아요",
-        subtitle: "My nickname",
-        price: "1000",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png",
-        url: "/product/page",
-      },
-      {
-        title: "Salted Caramel Swirl Ice Cream",
-        subtitle: "My nickname",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/salted-caramel-ice-cream.png",
-        price: "2000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "My nickname",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "3000",
-      },
-      {
-        title: "Peanut Butter No-Churn Ice Cream",
-        subtitle: "My nickname",
-        src: "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
-        price: "4000",
-      },
-    ],
     tab: null,
   }),
 };

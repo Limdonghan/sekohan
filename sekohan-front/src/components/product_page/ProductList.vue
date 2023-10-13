@@ -76,7 +76,7 @@
               <!-- 중요 -->
               <v-col
                 v-for="item in pro_sample"    
-                :key="title"
+                :key="item"
                 cols="12"
                 md="6"
                 lg="2"

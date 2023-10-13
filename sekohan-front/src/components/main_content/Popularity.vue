@@ -49,8 +49,5 @@ export default {
       model: null,
     };
   },
-  // data: () => ({
-  //   model: null,
-  // }),
 };
 </script>

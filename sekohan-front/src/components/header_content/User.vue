@@ -12,21 +12,18 @@
         min-width: 270px;
         min-height: 200px;
       "
-      v-for="{ avatar, nickname } in useritem"
+      v-for="user in data" :key="user"
     >
       <v-row>
         <v-col cols="12" sm="1"></v-col>
         <v-col cols="12" sm="3">
           <router-link to="/mypage">
-            <v-btn>
-              <v-img
-                style="min-height: 70px; min-width: 70px; margin-top: 10px"
-                src="@/assets/img/1-2.jpg"
-              ></v-img>
+            <v-btn style="margin-top: 20px;" flat>
+              <v-img width="30" src="@/assets/img/1-2.jpg" />
             </v-btn>
           </router-link>
         </v-col>
-        <v-col cols="12" sm="7" style="margin-top: 35px"> userNickName </v-col>
+        <v-col cols="12" sm="7" style="margin-top: 35px"> {{user.username}} </v-col>
       </v-row>
       <v-row>
         <v-col cols="12" sm="1"></v-col>
@@ -49,6 +46,7 @@
 <script>
 import SvgIcon from "@jamescoyle/vue-icon";
 import { mdiAccount } from "@mdi/js";
+import user_profile_sample from "@/assets/json/user_profile_sample.json";
 
 export default {
   name: "my-component",
@@ -57,12 +55,7 @@ export default {
   },
   data() {
     return {
-      useritem: [
-        {
-          avatar: "@/src/assets/1-1.jpg",
-          nickname: "userNickName22",
-        },
-      ],
+      data: user_profile_sample,
       path: mdiAccount,
     };
   },
