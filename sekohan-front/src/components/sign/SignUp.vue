@@ -15,7 +15,6 @@
           variant="underlined"
           prepend-inner-icon="mdi-account"
           :rules="userIdRules"
-
           @blur="checkDuplicate()"
         >
         </v-text-field>

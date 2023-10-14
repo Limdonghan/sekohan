@@ -7,23 +7,21 @@
     <v-card-text>
       <v-window v-model="tab">
         <v-window-item value="one"> <HelpUserIdVue /> </v-window-item>
-        <v-window-item value="two"> <HelpUserPasswordVue/> </v-window-item>
+        <v-window-item value="two"> <HelpUserPwVue/> </v-window-item>
       </v-window>
+
     </v-card-text>
   </v-card>
 </template>
 <script>
   import HelpUserIdVue from './HelpUserId.vue';
-  import HelpUserPasswordVue from './HelpUserPassword.vue';
-
-
-
+  import HelpUserPwVue from './HelpUserPw.vue';
   export default {
     data: () => ({
       model: null,
       tab: null,
     }),
-    components:{HelpUserIdVue, HelpUserPasswordVue}
+    components:{HelpUserIdVue, HelpUserPwVue}
   }
 </script>
 <style>

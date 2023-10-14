@@ -12,14 +12,18 @@
       elevation="8"
       max-width="448"
       rounded="lg"
-      
     >
       <div
         class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
       >
         User ID
       </div>
-      <v-text-field density="compact" placeholder="User ID" variant="outlined" prepend-inner-icon="mdi-account">
+      <v-text-field
+        density="compact"
+        placeholder="User ID"
+        variant="outlined"
+        prepend-inner-icon="mdi-account"
+      >
       </v-text-field>
 
       <div
@@ -82,8 +86,8 @@
 </template>
 <script>
 export default {
-    data: () => ({
-      visible: false,
-    }),
+  data: () => ({
+    visible: false,
+  }),
 };
 </script>

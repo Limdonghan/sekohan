@@ -6,21 +6,19 @@
           <svg-icon type="mdi" :path="path" />
         </v-btn>
       </template>
-      <v-card width="700px">
-        <v-card-title class="text-h5"> 검색창 </v-card-title>
-        <v-toolbar dense floating>
+      <v-card class="mx-auto" color="grey-lighten-3" min-width="800">
+        <v-card-text>
           <v-text-field
-            hide-details
-            prepend-icon="mdi-magnify"
+            :loading="loading"
+            density="compact"
+            variant="solo"
+            label="Search templates"
+            append-inner-icon="mdi-magnify"
             single-line
+            hide-details
+            @click:append-inner="onClick"
           ></v-text-field>
-        </v-toolbar>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green-darken-1" variant="text" @click="dialog = false">
-            Close
-          </v-btn>
-        </v-card-actions>
+        </v-card-text>
       </v-card>
     </v-dialog>
   </v-row>
@@ -37,7 +35,19 @@ export default {
     return {
       dialog: false,
       path: mdiTabSearch,
+      loaded: false,
+      loading: false,
     };
   },
+  methods: {
+      onClick () {
+        this.loading = true
+
+        setTimeout(() => {
+          this.loading = false
+          this.loaded = true
+        }, 2000)
+      },
+    },
 };
 </script>
