@@ -73,9 +73,10 @@
         <v-card theme="white" max-width="100%" rounded="1g">
           <v-container class="text-center">
             <v-row>
+              <!-- 중요 -->
               <v-col
-                v-for="item in pro"
-                :key="title"
+                v-for="item in pro_sample"    
+                :key="item"
                 cols="12"
                 md="6"
                 lg="2"
@@ -137,7 +138,7 @@
 </template>
 
 <script>
-import pro from "@/components/productpage/category.json";
+import pro_sample from "@/assets/json/pro_sample.json";
 
 export default {
   data() {
@@ -146,7 +147,7 @@ export default {
     };
   },
   data: () => ({
-    pro: pro,
+    pro_sample: pro_sample,
     open: ["Users"],
     admins: [["삼성", "/product/"], ["애플"]],
     cruds: [["유아"], ["어린이"], ["여성"], ["남성"]],

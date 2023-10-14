@@ -18,8 +18,7 @@
                   style="margin-top: 9px; max-width: 100%"
                   href="http://localhost:3000/upload"
                   ><v-icon color="yellow" icon="mdi-plus" />상품등록
-                </v-btn
-                >
+                </v-btn>
               </v-col>
             </v-row>
           </v-tabs>
@@ -27,13 +26,13 @@
         <v-card-text>
           <v-window v-model="tab">
             <v-window-item value="one">
-              <mysell />
+              <MySell />
             </v-window-item>
             <v-window-item value="two">
-              <ordersold />
+              <order-sold-out />
             </v-window-item>
             <v-window-item value="three">
-              <wishlist />
+              <wish-list />
             </v-window-item>
           </v-window>
         </v-card-text>
@@ -43,15 +42,22 @@
 </template>
 
 <script>
-import mysell from "@/components/mypage/mysell.vue";
-import ordersold from "@/components/mypage/order_soldout.vue";
-import wishlist from "@/components/mypage/wish_list.vue";
+import MySell from "./MySell.vue";
+import OrderSoldOut from "@/components/my_page/OrderSoldOut.vue";
+import WishList from "@/components/my_page/WishList.vue";
+import pro_sample from "@/assets/json/pro_sample.json";
 
 export default {
+  data() {
+    return {
+      data: pro_sample,
+      model: null,
+    };
+  },
   data: () => ({
     model: null,
     tab: null,
   }),
-  components: { mysell, ordersold, wishlist },
+  components: { MySell, OrderSoldOut, WishList },
 };
 </script>
