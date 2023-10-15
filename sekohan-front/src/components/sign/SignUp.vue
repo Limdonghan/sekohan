@@ -3,8 +3,7 @@
   <v-card class="mx-auto" max-width="500" title="SIGN UP">
     <v-container>
       <v-form>
-        <v-img
-        src="@/assets/img/image.png" width="100px"/>
+        <v-img src="@/assets/img/image.png" width="100px" />
         <v-btn type="submit" class="btn-transform">사진 등록</v-btn>
       </v-form>
       <v-form @submit.prevent>
@@ -14,9 +13,10 @@
           label="ID"
           variant="underlined"
           prepend-inner-icon="mdi-account"
-          :rules="userIdRules"
-          @blur="checkDuplicate()"
+          :rules="[userIdRules,checkDuplicate]"
         >
+          <!-- :rules="[userIdRules, checkDuplicate]"로 변경 -->
+          <!-- :rules 스펙에 애초에 rules랑 methods 배열 조합으로 받을 수 있었음-->
         </v-text-field>
       </v-form>
       <v-form @submit.prevent>
@@ -56,10 +56,10 @@
           label="Email"
           prepend-inner-icon="mdi-email-outline"
           variant="underlined"
-          style="width: 350px;"
+          style="width: 350px"
           :rules="emailRules"
         ></v-text-field
-        ><v-btn type="submit" class="btn-transform" >인증번호 전송</v-btn>
+        ><v-btn type="submit" class="btn-transform">인증번호 전송</v-btn>
       </v-form>
       <v-form @submit.prevent>
         <v-text-field
@@ -78,7 +78,7 @@
           prepend-inner-icon="mdi-map-marker"
           label="address"
           variant="underlined"
-          style="width: 350px;"
+          style="width: 350px"
           :rules="addressRules"
         ></v-text-field>
         <v-btn class="btn-transform">주소찾기</v-btn>
@@ -108,7 +108,6 @@
 </template>
 <script>
 import user_profile_sample from "@/assets/json/user_profile_sample.json";
-import { mdiTurnstile } from "@mdi/js";
 export default {
   data: () => ({
     test: "",
@@ -221,13 +220,12 @@ export default {
     ],
   }),
   methods: {
-    checkDuplicate() {
+    checkDuplicate(user_id) {
       // user_info -> 기존 유저 정보
       // user_id -> 새로 입력 받은 정보
-
-      for (var i = 0; i < this.user_info.length; i++) {
-        if (this.user_id == this.user_info[i].user_id) {
-          this.test = "중복";
+      for (var i = 0; i < 1; i++) {
+        if (user_id == this.user_info[i].user_id) {
+          return '이미 사용중인 아이디입니다.';
         }
       }
       return true;
@@ -236,9 +234,8 @@ export default {
 };
 </script>
 <style>
-.btn-transform{
+.btn-transform {
   width: 100px;
-  transform: translate(370px,-60px);
+  transform: translate(370px, -60px);
 }
-
 </style>
