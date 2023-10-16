@@ -4,10 +4,10 @@
         v-model="tab"
         color="deep-purple-accent-4"
         align-tabs="center"
-      >
-        <v-tab :value="user">USER</v-tab>
-        <v-tab :value="pro">PRODUCT</v-tab>
-        <v-tab :value="event">EVENT</v-tab>
+            >
+        <v-tab :value="user" style="font-size: 2rem;" >USER</v-tab>
+        <v-tab :value="pro" style="font-size: 2rem;">PRODUCT</v-tab>
+        <v-tab :value="event" style="font-size: 2rem;">EVENT</v-tab>
       </v-tabs>
       <v-window v-model="tab">
         <v-window-item :value="user">

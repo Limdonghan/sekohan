@@ -21,13 +21,13 @@
         single-line
         variant="outlined"
         hide-details
-        style="width: 80%; margin-top: 8px;"
+        style="width: 80%; margin-top: 8px; font-size: 1.5rem;"
       ></v-text-field>
       
     </v-card-title>
 
     <v-data-table
-      style="width: 1500px; margin: auto"
+      style="width: 1500px; margin: auto;"
       v-model:page="page"
       :headers="headers"
       :items="data2"
@@ -91,4 +91,11 @@ table {
   margin: 0 auto;
   padding: 0;
 }
+.v-data-table-header__content{
+    font-size: 1.5rem;
+}
+.v-data-table__td{
+    font-size: 1.2rem;
+}
+
 </style>
