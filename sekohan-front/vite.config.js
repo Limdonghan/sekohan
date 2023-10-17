@@ -46,13 +46,16 @@ export default defineConfig({
       '.vue',
     ],
   },
+  build: {
+    outDir: "../backend/src/main/resources/static",
+  }, // 빌드 결과물이 생성되는 경로
   server: {
     port: 3000,
+    proxy:{
+      "/api": "http://localhost:8080",
+    }
   },module,exports: {
     transpileDependencies: ["vuetify"],
-    devServer: {
-      port: 8081,
-    },
   }
   
 })

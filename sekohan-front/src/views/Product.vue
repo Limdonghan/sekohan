@@ -1,9 +1,16 @@
 <template>
-  <product />
+  <ProductList />
 </template>
 
 <script setup>
-import product from "@/components/productpage/productlist.vue";
+import ProductList from '@/components/product_page/ProductList.vue';
 </script>
 
-<style></style>
+
+
+<!-- export default {
+  data: () => ({
+    model: null,
+  }),
+  components: { productlist },
+}; -->

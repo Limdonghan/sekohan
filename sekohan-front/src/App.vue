@@ -1,19 +1,19 @@
 <template>
-    <HeaderBar />
-    <router-view></router-view>
-    <Footers />
+  <HeaderBar />
+  <router-view />
+  <Footers />
 </template>
 
 <script>
-import Footers from '@/components/Footers.vue';
-import HeaderBar from '@/components/HeaderBar.vue'
+import Footers from '@/components/sementic/Footers.vue';
+import HeaderBar from '@/components/sementic/HeaderBar.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HeaderBar,
-    Footers,
-  }
+name: 'App',
+components: {
+  HeaderBar,
+  Footers,
+}
 }
 
 </script>

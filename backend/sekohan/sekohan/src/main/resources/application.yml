@@ -1,0 +1,22 @@
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2000KB
+      max-request-size: 2000KB
+
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: BOOTUSER
+    password: BOOTUSER
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show-sql: true
+        database: oracle
+
