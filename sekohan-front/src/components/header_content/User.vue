@@ -12,7 +12,7 @@
         min-width: 270px;
         min-height: 200px;
       "
-      v-for="user in data" :key="user"
+      v-for="user in data.slice(0,1)" :key="user"
     >
       <v-row>
         <v-col cols="12" sm="1"></v-col>
@@ -23,7 +23,7 @@
             </v-btn>
           </router-link>
         </v-col>
-        <v-col cols="12" sm="7" style="margin-top: 35px"> {{user.username}} </v-col>
+        <v-col cols="12" sm="7" style="margin-top: 35px"> {{user.nickname}} </v-col>
       </v-row>
       <v-row>
         <v-col cols="12" sm="1"></v-col>

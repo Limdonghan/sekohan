@@ -1,6 +1,12 @@
 <template lang="">
   <br />
-  <v-card class="mx-auto pa-11 pb-8" max-width="448" rounded="lg">
+  <v-card
+    class="mx-auto pa-11 pb-8"
+    max-width="448"
+    rounded="lg"
+    elevation="0"
+    outlined="false"
+  >
     <div
       class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
     >
@@ -41,9 +47,16 @@
       variant="outlined"
       :rules="authenticatorRules"
     ></v-text-field>
-    <v-btn block class="mb-8" color="blue" size="large" variant="tonal" @click="find_id">
-        continue
-      </v-btn>
+    <v-btn
+      block
+      class="mb-8"
+      color="blue"
+      size="large"
+      variant="tonal"
+      @click="find_id"
+    >
+      continue
+    </v-btn>
   </v-card>
   <br /><br />
 </template>

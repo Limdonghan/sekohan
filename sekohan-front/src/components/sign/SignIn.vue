@@ -9,9 +9,10 @@
 
     <v-card
       class="mx-auto pa-11 pb-8"
-      elevation="8"
+      elevation="1"
       max-width="448"
       rounded="lg"
+      outlined="false"
     >
       <div
         class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
