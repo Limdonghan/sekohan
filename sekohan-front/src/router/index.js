@@ -13,7 +13,8 @@ const routes = [
   { path: '/signup', component: () => import("../components/sign/SignUp.vue")},
   { path: '/help', component: () => import("../components/forgot_account/HelpUser.vue")},
   { path: '/upload', component: () => import("@/components/Upload/upload.vue")},
-  { path: '/test', component: () => import("@/components/Upload/test2.vue")}
+  { path: '/test', component: () => import("@/components/Upload/test2.vue")},
+  { path: '/update/test', component: () => import("@/components/Upload/update.vue")}
 ]
 
 const router = createRouter({

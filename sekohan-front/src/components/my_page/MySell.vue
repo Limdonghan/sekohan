@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col v-for="pro_data in data.slice((page*2)-2, page*2)" :key="pro_data">
+    <v-col v-for="pro_data in data.slice((page*2)-2, page*2)" :key="pro_sample">
       <v-card
         class="mx-auto"
         min-height="180"
@@ -30,7 +30,7 @@
             <v-btn 
             size="small" 
             color="blue" 
-            style="margin-top:130px; ali" :href="pro_data.url"
+            style="margin-top:130px; ali" :href="'localhost:3000/update/'+pro_data.number"
               >게시글수정</v-btn>
           </v-col>
         </v-row>
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import pro_sample from "@/assets/json/pro_sample.json";
+import pro_sample from "@/assets/json/my_pro_sample.json";
 
 export default {
   data() {

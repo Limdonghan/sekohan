@@ -14,12 +14,25 @@
                 v-model="productName"
                 label="제목을 입력해 주세요."
               ></v-text-field>
-              <v-text-field
-                v-model="productPrice"
-                label="상품 가격"
-                suffix="￥"
-                @input="formatPrice"
-              ></v-text-field>
+              <v-row>
+                <v-col cols="12" sm="6">
+                  <v-text-field
+                    v-model="productPrice"
+                    label="상품 가격"
+                    suffix="￥"
+                    @input="formatPrice"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" sm="6">
+                  <v-select
+                    class="pa-0"
+                    label="상품상태"
+                    v-model="select"
+                    :items="options"
+                    outlined
+                  ></v-select>
+                </v-col>
+              </v-row>
               <v-textarea
                 v-model="productDescription"
                 label="올릴 게시글 내용을 작성해 주세요."
@@ -32,7 +45,14 @@
       <v-col>
         <v-row>
           <v-col cols="12" sm="4">
-            <v-btn @click="openFileInput">이미지 선택</v-btn>
+            <v-btn @click="openFileInput"  style="
+                max-width: 120px;
+                min-width: 120px;
+                max-height: 120px;
+                min-height: 120px;
+                margin-left: 25px;
+                margin-top: 10px;
+              " icon="mdi-plus"></v-btn>
             <v-file-input
               ref="fileInput"
               v-if="showFileInput"
@@ -49,7 +69,7 @@
             cols="12"
             sm="4"
           >
-            <div v-if="index === 0" style="position: fixed">매인이미지</div>
+            <div v-if="index === 0" style="position: fixed; z-index: 1; font-size: 20px; margin-left: 33px; color: crimson;">대표 이미지</div>
             <v-img
               :src="file.preview"
               style="
@@ -60,7 +80,9 @@
                 margin-left: 25px;
               "
             ></v-img>
-            <v-btn @click="deleteFile(index)" style="margin-left: 52px;">삭제</v-btn>
+            <v-btn @click="deleteFile(index)" style="margin-left: 52px"
+              >삭제</v-btn
+            >
           </v-col>
         </v-row>
       </v-col>
@@ -72,6 +94,8 @@
 export default {
   data() {
     return {
+      select: "상품상태",
+      options: ["판매중", "거래중", "거래완료"],
       productName: "",
       productDescription: "",
       productPrice: "",
