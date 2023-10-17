@@ -4,7 +4,7 @@
       :headers="headers"
       :items="memberData"
       :search="search"
-      :sort-by="[{ key: 'calories', order: 'asc' }]"
+      item-value="memberData"
       class="elevation-1"
     >
       <template v-slot:top>
@@ -49,11 +49,11 @@
           </v-card>
         </v-dialog>
       </template>
-      <template v-slot:item.actions=memberData>
-        <v-icon size="small" class="me-2" @click="editItem(memberData)">
+      <template v-slot:item.actions="{ item }">
+        <v-icon size="small" class="me-2" @click="editItem(item)">
           mdi-pencil
         </v-icon>
-        <v-icon size="small" @click="deleteItem(memberData)"> mdi-delete </v-icon>
+        <v-icon size="small" @click="deleteItem(item)"> mdi-delete </v-icon>
       </template>
       <template v-slot:no-data>
         <v-btn color="primary" @click="initialize"> Reset </v-btn>
@@ -90,7 +90,6 @@ export default {
       { title: "REPORT", key: "report" },
       { title: "Actions", key: "actions", sortable: false },
     ],
-    desserts: [],
     editedIndex: -1,
     editedItem: {
       name: "",
@@ -130,15 +129,15 @@ export default {
   methods: {
     initialize() {},
 
-    editItem(memberData) {
-      this.editedIndex = this.memberData.indexOf(memberData);
-      this.editedItem = Object.assign({}, memberData);
+    editItem(item) {
+      this.editedIndex = this.memberData.indexOf(item);
+      this.editedItem = Object.assign({}, item);
       this.dialog = true;
     },
 
-    deleteItem(memberData) {
-      this.editedIndex = this.memberData.indexOf(memberData);
-      this.editedItem = Object.assign({}, memberData);
+    deleteItem(item) {
+      this.editedIndex = this.memberData.indexOf(item);
+      this.editedItem = Object.assign({}, item);
       this.dialogDelete = true;
     },
 
