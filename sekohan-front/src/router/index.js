@@ -12,6 +12,7 @@ const routes = [
   { path: '/signin', component: () => import("../components/sign/SignIn.vue")}, 
   { path: '/signup', component: () => import("../components/sign/SignUp.vue")},
   { path: '/help', component: () => import("../components/forgot_account/HelpUser.vue")},
+  { path: '/help/result', component: () => import("../components/forgot_account/HelpUserResult/ResultId.vue")},
   { path: '/admin', component: () => import("../components/admin/control.vue")},
   { path: '/:pathMatch(.*)*',redirect: "/404"},
   { path: '/404', name:"notFound",component: () => import("../components/error/404.vue")}
