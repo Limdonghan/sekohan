@@ -64,7 +64,7 @@
       color="blue"
       size="large"
       variant="tonal"
-      @click="find_user_id()"
+      @click="find_user_id"
     >
       continue
     </v-btn>
@@ -120,7 +120,7 @@ export default {
         });
     },
 
-    find_user_id(name) {
+    find_user_id() {
       //user_info.name -> 기존 유저 정보
       //this.name -> 새로 입력 받은 정보
       for (var i = 0; i < 1; i++) {
