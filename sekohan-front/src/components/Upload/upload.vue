@@ -31,7 +31,7 @@
       </v-col>
       <v-col>
         <v-row>
-          <v-col cols="12" sm="4">
+          <v-col cols="12" sm="3">
             <v-btn
               @click="openFileInput"
               style="
@@ -58,7 +58,7 @@
             v-for="(file, index) in uploadedFiles"
             :key="index"
             cols="12"
-            sm="4"
+            sm="3"
           >
             <div
               v-if="index === 0"

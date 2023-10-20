@@ -52,24 +52,22 @@
           </v-col>
           <v-col cols="12" sm="2">
             <v-select
-              @change="onItemSelect"
-              class="pa-0"
               v-model="select1"
-              :items="options1.map((options) => options.value)"
+              @update:model-value="onItemSelect()"
+              class="pa-0"
+              :items="options1.map((option) => option.value)"
               style="margin-bottom: -20px; margin-right: 10%"
               outlined
             ></v-select>
           </v-col>
           <v-col cols="12" sm="2">
             <v-select
-              class="pa-0"
               v-model="select2"
-              :items="options2"
+              @update:model-value="onSecondItemSelect"
+              :items="options2.map((option) => option.value)"
               style="margin-bottom: -20px; margin-right: 10%"
               outlined
             ></v-select>
-            <v-btn @click="priceselecthigh()">가격순정렬</v-btn>
-            <v-btn @click="priceselectlow()">가격순정렬</v-btn>
           </v-col>
         </v-row>
 
@@ -161,20 +159,31 @@ export default {
         { key: 1, value: "가격높은순" },
         { key: 2, value: "가격낮은순" },
       ],
-      options2: ["최신순", "과거순"],
+      options2: [
+        { key: 1, value: "최신순" },
+        { key: 2, value: "과거순" },
+      ],
     };
   },
   methods: {
-    priceselecthigh() {
+    priceselectlow() {
       this.pro_sample.sort((a, b) => a.price - b.price);
     },
-    priceselectlow() {
+    priceselecthigh() {
       this.pro_sample.sort((a, b) => b.price - a.price);
     },
     onItemSelect() {
+      console.log()
       if (this.select1 === "가격높은순") {
         this.priceselecthigh();
       } else if (this.select1 === "가격낮은순") {
+        this.priceselectlow();
+      }
+    },
+    onSecondItemSelect() {
+      if (this.select2 === "최신순") {
+        this.priceselecthigh();
+      } else if (this.select2 === "과거순") {
         this.priceselectlow();
       }
     },

@@ -44,15 +44,19 @@
       </v-col>
       <v-col>
         <v-row>
-          <v-col cols="12" sm="4">
-            <v-btn @click="openFileInput"  style="
+          <v-col cols="12" sm="3">
+            <v-btn
+              @click="openFileInput"
+              style="
                 max-width: 120px;
                 min-width: 120px;
                 max-height: 120px;
                 min-height: 120px;
                 margin-left: 25px;
                 margin-top: 10px;
-              " icon="mdi-plus"></v-btn>
+              "
+              icon="mdi-plus"
+            ></v-btn>
             <v-file-input
               ref="fileInput"
               v-if="showFileInput"
@@ -67,9 +71,20 @@
             v-for="(file, index) in uploadedFiles"
             :key="index"
             cols="12"
-            sm="4"
+            sm="3"
           >
-            <div v-if="index === 0" style="position: fixed; z-index: 1; font-size: 20px; margin-left: 33px; color: crimson;">대표 이미지</div>
+            <div
+              v-if="index === 0"
+              style="
+                position: fixed;
+                z-index: 1;
+                font-size: 20px;
+                margin-left: 33px;
+                color: crimson;
+              "
+            >
+              대표 이미지
+            </div>
             <v-img
               :src="file.preview"
               style="
@@ -112,7 +127,6 @@ export default {
       if (hasUploadedFiles) {
         this.uploadedFiles = [];
       }
-      // 여기서 서버로 제품 정보와 이미지를 보내는 코드를 추가할 수 있습니다.
       console.log("등록된 상품: ", {
         name: this.productName,
         description: this.productDescription,
@@ -120,7 +134,6 @@ export default {
         image: this.productImage,
       });
 
-      // 제출 후 필드를 초기화합니다.
       this.productName = "";
       this.productDescription = "";
       this.productPrice = "";
