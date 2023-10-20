@@ -13,7 +13,7 @@
           label="ID"
           variant="underlined"
           prepend-inner-icon="mdi-account"
-          :rules="[userIdRules,checkDuplicate]"
+          :rules="[userIdRules, checkDuplicate]"
         >
           <!-- :rules="[userIdRules, checkDuplicate]"로 변경 -->
           <!-- :rules 스펙에 애초에 rules랑 methods 배열 조합으로 받을 수 있었음-->
@@ -49,7 +49,7 @@
           :rules="nicknameRules"
         ></v-text-field>
       </v-form>
-      <v-form @submit.prevent>
+
         <v-text-field
           v-model="email"
           color="primary"
@@ -59,18 +59,22 @@
           style="width: 350px"
           :rules="emailRules"
         ></v-text-field
-        ><v-btn type="submit" class="btn-transform">인증번호 전송</v-btn>
-      </v-form>
-      <v-form @submit.prevent>
+        ><v-btn type="submit" class="btn-transform" @click="sendEmail"
+          >인증번호 전송</v-btn
+        >
+
+
         <v-text-field
-          type="number"
           v-model="authenticator"
           color="primary"
           label="authenticator number"
           variant="underlined"
           :rules="authenticatorRules"
         ></v-text-field>
-      </v-form>
+        <v-btn type="submit" class="btn-transform" @click="authenticatorCheck"
+          >인증번호 확인</v-btn
+        >
+
       <v-form @submit.prevent>
         <v-text-field
           v-model="address"
@@ -107,13 +111,15 @@
   <br />
 </template>
 <script>
+import axios from "axios";
 import user_profile_sample from "@/assets/json/user_profile_sample.json";
 export default {
   data: () => ({
-    test: "",
+    authenticator: "", //사용자가 입력한 인증번호
     user_info: user_profile_sample,
-    user_id: "",
-    userIdRules: [
+    user_id: "", //사용자가 입력한 ID
+    // 사용자 ID 유효성 체크
+    userIdRules: [   
       (value) => {
         if (value) {
           return true;
@@ -134,7 +140,7 @@ export default {
         return "아이디는 15자 이상 입력할 수 없습니다.";
       },
     ],
-    password: "",
+    password: "", //사용자가 입력한 PW
     passwordRules: [
       (value) => {
         if (value) {
@@ -149,7 +155,8 @@ export default {
         return "패스워드는 30자 이상 입력할 수 없습니다.";
       },
     ],
-    name: "",
+    name: "", //사용자가 입력한 이름
+    //사용자 이름 유효성체크
     nameRules: [
       (value) => {
         if (value) {
@@ -170,7 +177,8 @@ export default {
         return "이름에는 특수문자를 사용할 수 없습니다.";
       },
     ],
-    nickname: "",
+    nickname: "", //사용자가 입력한 닉네임
+    //사용자 닉네임 유효성체크
     nicknameRules: [
       (value) => {
         if (value) {
@@ -191,7 +199,8 @@ export default {
         return "닉네임에는 특수문자를 사용할 수 없습니다.";
       },
     ],
-    email: "",
+    email: "", //사용자가 입력한 이메일
+    //사용자 이메일 유효성 체크
     emailRules: [
       (value) => {
         if (value) {
@@ -209,7 +218,8 @@ export default {
         return "이메일 형식대로 입력해주세요";
       },
     ],
-    authenticator: "",
+    authenticator: "", //사용자가 입력한 인증번호
+    //사용자 이메일 유효성 체크
     authenticatorRules: [
       (value) => {
         if (value) {
@@ -220,12 +230,41 @@ export default {
     ],
   }),
   methods: {
+    sendEmail(){ //인증번호 전송 버튼 메서드
+      axios.post('http://localhost:8080/api/send-mail/email',this.email,{
+        headers: {  //Message Body에 들어가는 타입을 HTTP Header에 명시
+          'Content-Type' : 'application/json'
+        }
+      })
+      .then(res => {  //인증번호 전송 성공했을 때
+        alert("인증번호 전송 성공",res)
+      })
+      .catch(error => {  //인증번호 전송 실패했을 때
+        console.error('에러발생 : ',error);
+      });
+    },
+    authenticatorCheck(){  //인증번호 체크 버튼 메서드
+      axios.post('http://localhost:8080/api/send-mail/check',this.authenticator,{
+        headers: { //Message Body에 들어가는 타입을 HTTP Header에 명시
+          'Content-Type' : 'application/json'
+        }
+      })
+      .then(res => {  //인증 성공 했을 때
+        alert("인증번호 인증 성공", res)
+      })
+      .catch(error => { //인증 실패 했을 때
+        console.error('에러발생 : ',error)
+      })
+    },
+
+
+
     checkDuplicate(user_id) {
       // user_info -> 기존 유저 정보
       // user_id -> 새로 입력 받은 정보
       for (var i = 0; i < 1; i++) {
         if (user_id == this.user_info[i].user_id) {
-          return '이미 사용중인 아이디입니다.';
+          return "이미 사용중인 아이디입니다.";
         }
       }
       return true;
