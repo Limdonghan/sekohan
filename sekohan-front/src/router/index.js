@@ -15,7 +15,9 @@ const routes = [
   { path: '/help/result', component: () => import("../components/forgot_account/HelpUserResult/ResultId.vue")},
   { path: '/admin', component: () => import("../components/admin/control.vue")},
   { path: '/:pathMatch(.*)*',redirect: "/404"},
-  { path: '/404', name:"notFound",component: () => import("../components/error/404.vue")}
+  { path: '/404', name:"notFound",component: () => import("../components/error/404.vue")},
+  { path: '/upload', component: () => import("../components/Upload/upload.vue")},
+  { path: '/update/test', component: () => import("../components/Upload/update.vue")}
 
   // { path: '/upload', component: () => import("@/components/my_page/Upload.vue")}
 ]

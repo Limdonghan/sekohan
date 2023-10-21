@@ -45,7 +45,6 @@
 import MySell from "./MySell.vue";
 import OrderSoldOut from "@/components/my_page/OrderSoldOut.vue";
 import WishList from "@/components/my_page/WishList.vue";
-import pro_sample from "@/assets/json/pro_sample.json";
 
 export default {
   data() {

@@ -1,26 +1,25 @@
 <template>
-  <v-row id="orderSoldOut">
-    <v-col v-for="pro_data in data.slice(0, 6)" :key="pro_data">
+  <v-row>
+    <v-col v-for="pro_data in data.slice((page*4)-4, page*4)" :key="pro_data">
       <v-card
         class="mx-auto"
-        min-height="200"
-        max-height="200"
-        min-width="500"
-        max-width="500"
+        min-height="180"
+        max-height="180"
+        min-width="600"
+        max-width="600"
         v-bind="props"
       >
         <v-row>
           <v-col cols="12" sm="4">
             <v-img
-              width="300"
-              style="margin-top: 10px"
+              width="160"
+              style="margin-top: 10px; margin-left: 10px;"
               :src="pro_data.src"
             ></v-img>
           </v-col>
           <v-col cols="12" sm="5">
-            <v-card-text style="position" class="text-h5">
+            <v-card-text style="position">
               <v-list-item
-                class="test"
                 :title="pro_data.title"
                 :subtitle="pro_data.subtitle"
               ></v-list-item>
@@ -32,7 +31,7 @@
               disabled
               size="small"
               color="black"
-              style="margin-top:150px; ali"
+              style="margin-top:130px; ali"
             >
               판매 완료</v-btn
             >
@@ -44,7 +43,7 @@
   <div class="text-center">
     <v-pagination
       v-model="page"
-      :length="1"
+      :length="5"
       :total-visible="6"
       prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right"
@@ -59,6 +58,11 @@ export default {
     return {
       data: pro_sample,
       page: 1,
+      computed:{
+        numOfPage(){
+          return Math.celi(this.data.length/4)
+        }
+      }
     };
   },
   // data: () => ({

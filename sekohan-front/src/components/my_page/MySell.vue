@@ -1,22 +1,23 @@
 <template>
   <v-row>
-    <v-col v-for="pro_data in data.slice(0,5)" :key="pro_data">
+    <v-col v-for="pro_data in data.slice((page*2)-2, page*2)" :key="pro_sample">
       <v-card
         class="mx-auto"
-        min-height="150"
-        max-height="150"
-        max-width="800"
+        min-height="180"
+        max-height="180"
+        min-width="600"
+        max-width="600"
         v-bind="props"
       >
         <v-row>
           <v-col cols="12" sm="4">
             <v-img
-              width="300"
-              style="margin-top: 10px"
+              width="160"
+              style="margin-top: 10px; margin-left: 10px;" 
               :src="pro_data.src"
             ></v-img>
           </v-col>
-          <v-col cols="12" sm="4">
+          <v-col cols="12" sm="5">
             <v-card-text style="position">
               <v-list-item
                 :title="pro_data.title"
@@ -25,8 +26,11 @@
               <v-list-item>{{ pro_data.price }}￥</v-list-item>
             </v-card-text>
           </v-col>
-          <v-col cols="12" sm="4" style="align=right;">
-            <v-btn size="small" color="blue" style="margin-top:100px;" :href="pro_data.url"
+          <v-col cols="12" sm="3" style="align=right;">
+            <v-btn 
+            size="small" 
+            color="blue" 
+            style="margin-top:130px; ali" :href="'localhost:3000/update/'+pro_data.number"
               >게시글수정</v-btn>
           </v-col>
         </v-row>
@@ -36,7 +40,7 @@
   <div class="text-center">
     <v-pagination
       v-model="page"
-      :length="1"
+      :length="5"
       :total-visible="6"
       prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right"
@@ -45,7 +49,7 @@
 </template>
 
 <script>
-import pro_sample from "@/assets/json/pro_sample.json";
+import pro_sample from "@/assets/json/my_pro_sample.json";
 
 export default {
   data() {

@@ -1,30 +1,29 @@
 <template>
   <v-row>
-    <v-col v-for="i in data" :key="i">
+    <v-col v-for="pro_data in data.slice((page*5)-5, page*5)" :key="pro_data">
       <v-card
         class="mx-auto"
-        min-height="200"
-        max-height="200"
-        max-width="800"
+        min-height="180"
+        max-height="180"
+        min-width="600"
+        max-width="600"
         v-bind="props"
       >
         <v-row>
           <v-col cols="12" sm="4">
             <v-img
-              :src="i.src"
-              min-height="180"
-              max-height="180"
-              style="margin-top: 10px"
+              width="160"
+              style="margin-top: 10px; margin-left: 10px;" 
+              :src="pro_data.src"
             ></v-img>
           </v-col>
           <v-col cols="12" sm="5">
             <v-card-text style="position ">
               <v-list-item
-                :title="i.title"
-                :subtitle="i.subtitle"
-                :href="i.url"
+                :title="pro_data.title"
+                :subtitle="pro_data.subtitle"
               ></v-list-item>
-              <v-list-item :subtitle="i.price + '원'"></v-list-item>
+              <v-list-item>{{ pro_data.price }}￥</v-list-item>
             </v-card-text>
           </v-col>
           <v-col cols="12" sm="3" style="align=right;">
@@ -50,7 +49,7 @@
   <div class="text-center">
     <v-pagination
       v-model="page"
-      :length="1"
+      :length="5"
       :total-visible="6"
       prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right"
@@ -67,8 +66,5 @@ export default {
       page: 1,
     };
   },
-  data: () => ({
-    tab: null,
-  }),
 };
 </script>
