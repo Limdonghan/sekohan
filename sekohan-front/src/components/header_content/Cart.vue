@@ -6,12 +6,7 @@
       </v-btn>
     </template>
     <v-card
-      style="
-        max-width: 280px;
-        max-height: 200px;
-        min-width: 270px;
-        min-height: 200px;
-      "
+
       v-for="item in data.slice(0, 2)"
       :key="item"
     >
@@ -36,9 +31,11 @@
       <v-btn outlined>상품 더 보기</v-btn>
 
       <v-btn outlined>제거하기</v-btn>
+      <v-divider></v-divider>
     </v-card>
+    
   </v-menu>
-  <v-divider></v-divider>
+
 </template>
 
 <script>
