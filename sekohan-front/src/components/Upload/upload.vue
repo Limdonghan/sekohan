@@ -93,6 +93,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -108,33 +110,39 @@ export default {
   },
   methods: {
     submitProduct() {
-      const hasUploadedFiles = this.uploadedFiles.length > 0;
-      if (hasUploadedFiles) {
-        this.uploadedFiles = [];
+      const formData = new FormData();
+      formData.append("proName", this.productName);
+      formData.append("proInfo", this.productDescription);
+      formData.append("proPrice", this.productPrice);
+      for (let i = 0; i < this.newFiles.length; i++) {
+        formData.append("files", this.newFiles[i]);
       }
-      console.log("등록된 상품: ", {
-        name: this.productName,
-        description: this.productDescription,
-        price: this.productPrice,
-        image: this.productImage,
-      });
+      formData.append("categoryId", 5);
+      formData.append("userId", 1);
+
+      axios
+        .post("http://localhost:7070/products/upload", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log('성공', response.data);
+        })
+        .catch((error) => {
+          console.error('업로드실패', error);
+        });
 
       this.productName = "";
       this.productDescription = "";
       this.productPrice = "";
       this.productImage = null;
       this.productImagePreview = null;
-      this.uploadedFiles = null;
+      this.uploadedFiles = [];
     },
-    onFileChanged(event) {
+    onFileChange(event) {
       this.productImage = event.target.files[0];
       this.productImagePreview = URL.createObjectURL(this.productImage);
-    },
-    clearImage() {
-      this.productImage = null;
-      this.productImagePreview = null;
-    },
-    onFileChange() {
       this.showFileInput = false;
       const newPreviews = this.newFiles.map((file) => ({
         file,
@@ -142,14 +150,13 @@ export default {
       }));
       this.uploadedFiles.push(...newPreviews);
     },
+    clearImage() {
+      this.productImage = null;
+      this.productImagePreview = null;
+    },
     deleteFile(index) {
       URL.revokeObjectURL(this.uploadedFiles[index].preview);
       this.uploadedFiles.splice(index, 1);
-    },
-    formatPrice() {
-      this.productPrice = this.productPrice
-        .replace(/[^\d.]/g, "")
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     openFileInput() {
       this.showFileInput = true;
