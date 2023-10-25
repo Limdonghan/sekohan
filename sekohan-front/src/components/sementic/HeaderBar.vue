@@ -17,7 +17,7 @@
           </router-link>
         </td>
         <td style="width: 15%">
-          <router-link to="/product">
+          <router-link to="/product/list">
             <v-btn flat class="nav-button" :height="60">
               <h1>product</h1>
             </v-btn>

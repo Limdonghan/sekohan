@@ -74,9 +74,8 @@
         <v-card theme="white" max-width="100%" rounded="1g">
           <v-container class="text-center">
             <v-row>
-              <!-- 중요 -->
               <v-col
-                v-for="item in pro_sample"
+                v-for="item in pro_image"
                 :key="item"
                 cols="12"
                 md="6"
@@ -93,16 +92,18 @@
                     <v-img
                       min-height="245"
                       max-height="245"
-                      :src="item.src"
+                      :src="getImageUrl(item.path)"
                     ></v-img>
 
                     <v-card-text style="position ">
                       <v-list-item
-                        :title="item.title"
-                        :subtitle="item.subtitle"
+                        :title="item.productId.proName"
+                        :subtitle="item.productId.proInfo"
                         class="px-0"
                       ></v-list-item>
-                      <v-list-item :subtitle="item.price + '원'"></v-list-item>
+                      <v-list-item
+                        :subtitle="item.productId.proPrice + '원'"
+                      ></v-list-item>
                     </v-card-text>
 
                     <v-overlay
@@ -111,7 +112,7 @@
                       scrim="#958648"
                       class="align-center justify-center"
                     >
-                      <v-btn :href="item.url">상세 보기</v-btn>
+                    <v-btn :href="`/product/page/${item.productId.productId}`">상세 보기</v-btn>
                     </v-overlay>
                   </v-card>
                 </v-hover>
@@ -128,7 +129,7 @@
               <div class="text-center">
                 <v-pagination
                   v-model="page"
-                  :length="11"
+                  :length="pro_image.length/2"
                   :total-visible="6"
                   prev-icon="mdi-menu-left"
                   next-icon="mdi-menu-right"
@@ -143,13 +144,13 @@
 </template>
 
 <script>
-import pro_sample from "@/assets/json/pro_sample.json";
+import axios from "axios";
 
 export default {
   data() {
     return {
       page: 1,
-      pro_sample: pro_sample,
+      pro_image: [],
       open: ["Users"],
       admins: [["삼성", "/product/"], ["애플"]],
       cruds: [["유아"], ["어린이"], ["여성"], ["남성"]],
@@ -165,15 +166,35 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.imageData();
+  },
   methods: {
+    getImageUrl(path) {
+      return `http://localhost:7070/images/${path}`;
+    },
     priceselectlow() {
-      this.pro_sample.sort((a, b) => a.price - b.price);
+      this.pro_image.sort(
+        (a, b) => a.productId.proPrice - b.productId.proPrice
+      );
     },
     priceselecthigh() {
-      this.pro_sample.sort((a, b) => b.price - a.price);
+      this.pro_image.sort(
+        (a, b) => b.productId.proPrice - a.productId.proPrice
+      );
+    },
+    timeslectnew() {
+      this.pro_image.sort(
+        (a, b) => a.productId.productId - b.productId.productId
+      );
+    },
+    timeselectold() {
+      this.pro_image.sort(
+        (a, b) => b.productId.productId - a.productId.productId
+      );
     },
     onItemSelect() {
-      console.log()
+      console.log();
       if (this.select1 === "가격높은순") {
         this.priceselecthigh();
       } else if (this.select1 === "가격낮은순") {
@@ -182,10 +203,21 @@ export default {
     },
     onSecondItemSelect() {
       if (this.select2 === "최신순") {
-        this.priceselecthigh();
+        this.timeselectold();
       } else if (this.select2 === "과거순") {
-        this.priceselectlow();
+        this.timeslectnew();
       }
+    },
+    imageData() {
+      axios
+        .get("http://localhost:7070/products/imagelist")
+        .then((response) => {
+          console.log(response.data);
+          this.pro_image = response.data;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
     },
   },
 };
