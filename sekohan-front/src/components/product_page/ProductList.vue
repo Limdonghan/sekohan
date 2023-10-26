@@ -97,12 +97,12 @@
 
                     <v-card-text style="position ">
                       <v-list-item
-                        :title="item.productId.proName"
-                        :subtitle="item.productId.proInfo"
+                        :title="item.proName"
+                        :subtitle="item.proInfo"
                         class="px-0"
                       ></v-list-item>
                       <v-list-item
-                        :subtitle="item.productId.proPrice + '원'"
+                        :subtitle="item.proPrice + '원'"
                       ></v-list-item>
                     </v-card-text>
 
@@ -112,7 +112,9 @@
                       scrim="#958648"
                       class="align-center justify-center"
                     >
-                    <v-btn :href="`/product/page/${item.productId.productId}`">상세 보기</v-btn>
+                      <v-btn :href="`/product/page/${item.productId}`"
+                        >상세 보기</v-btn
+                      >
                     </v-overlay>
                   </v-card>
                 </v-hover>
@@ -129,7 +131,7 @@
               <div class="text-center">
                 <v-pagination
                   v-model="page"
-                  :length="pro_image.length/2"
+                  :length="pro_image.length / 2"
                   :total-visible="6"
                   prev-icon="mdi-menu-left"
                   next-icon="mdi-menu-right"
@@ -175,22 +177,22 @@ export default {
     },
     priceselectlow() {
       this.pro_image.sort(
-        (a, b) => a.productId.proPrice - b.productId.proPrice
+        (a, b) => a.proPrice - b.proPrice
       );
     },
     priceselecthigh() {
       this.pro_image.sort(
-        (a, b) => b.productId.proPrice - a.productId.proPrice
+        (a, b) => b.proPrice - a.proPrice
       );
     },
     timeslectnew() {
       this.pro_image.sort(
-        (a, b) => a.productId.productId - b.productId.productId
+        (a, b) => a.productId - b.productId
       );
     },
     timeselectold() {
       this.pro_image.sort(
-        (a, b) => b.productId.productId - a.productId.productId
+        (a, b) => b.productId - a.productId
       );
     },
     onItemSelect() {
@@ -199,14 +201,14 @@ export default {
         this.priceselecthigh();
       } else if (this.select1 === "가격낮은순") {
         this.priceselectlow();
-      }
+      } //proprice 순으로 정렬
     },
     onSecondItemSelect() {
       if (this.select2 === "최신순") {
         this.timeselectold();
       } else if (this.select2 === "과거순") {
         this.timeslectnew();
-      }
+      } //productID 순으로 정렬
     },
     imageData() {
       axios

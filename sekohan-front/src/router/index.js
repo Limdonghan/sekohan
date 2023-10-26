@@ -7,7 +7,7 @@ const routes = [
   { path: '/', component: Home },
   { path: '/product/list', component: () => import('../views/Product.vue')},
   { path: '/faq', component: () => import('../views/Faq.vue')},
-  { path: '/product/page', component: () => import("@/components/product_page/ProductPage.vue")},
+  { path: '/product/page/:postid', component: () => import("@/components/product_page/ProductPage.vue")},
   { path: '/mypage', component: () => import("../components/my_page/MyPage")},
   { path: '/signin', component: () => import("../components/sign/SignIn.vue")}, 
   { path: '/signup', component: () => import("../components/sign/SignUp.vue")},

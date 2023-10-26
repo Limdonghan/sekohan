@@ -3,15 +3,16 @@
     <v-col cols="12" sm="1"></v-col>
     <v-col cols="12" sm="4" style="background-color: papayawhip">
       <v-carousel
+        v-if="ProData.path && ProData.path.length > 0"
         cycle
         height="400"
         hide-delimiter-background
         show-arrows-on-hover
       >
         <v-carousel-item
-          v-for="(item, i) in items"
-          :key="i"
-          :src="item.src"
+          v-for="(item, index) in ProData.path"
+          :key="index"
+          :src="getImageUrl(item)"
         ></v-carousel-item>
       </v-carousel>
     </v-col>
@@ -20,12 +21,12 @@
         <v-breadcrumbs class="pb-0" :items="breadcrums"></v-breadcrumbs>
         <div class="pl-6">
           <p class="display-1 mb-0" style="font-size: 22px">
-            맥북 팔아용 급처급처
+            {{ ProData.proName }}
           </p>
-          <p class="size" style="font-size: 13px">판매자</p>
+          <p class="size" style="font-size: 13px">{{ ProData.nickName }}</p>
           <v-card-actions class="pa-0">
             <p class="headline font-weight-light pt-3" style="font-size: 14px">
-              500,000원
+              {{ ProData.proPrice }} 円
             </p>
             <v-spacer></v-spacer>
           </v-card-actions>
@@ -33,8 +34,7 @@
             class="subtitle-1 font-weight-thin"
             style="height: 200px; font-size: 17px"
           >
-            <div>맥북 오늘만 급처가에 팔아요 ㅠㅠ</div>
-            <div>010-@@@@-@@@@연락주세요 ㅠㅠ</div>
+            {{ ProData.proInfo }}
           </div>
           <v-btn class="primary white--text" outlined tile dense
             ><v-icon>mdi-cart</v-icon>찜목록 추가</v-btn
@@ -120,9 +120,11 @@
   </v-row>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
+      ProData: [],
       item: [
         {
           avatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
@@ -164,6 +166,28 @@ export default {
         },
       ],
     };
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    getImageUrl(path) {
+      return `http://localhost:7070/images/${path}`;
+    },
+    fetchData() {
+      const currentPath = window.location.pathname;
+      const pageid = currentPath.split("/").pop();
+      const url = `http://localhost:7070/products/page/${pageid}`;
+
+      axios
+        .get(url)
+        .then((response) => {
+          this.ProData = response.data;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    },
   },
 };
 </script>
