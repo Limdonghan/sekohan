@@ -2,9 +2,12 @@
   <!-- 회원가입 -->
   <v-card class="mx-auto" max-width="500" title="SIGN UP">
     <v-container>
-      <v-btn flat height="70px">
-        <v-img src="@/assets/img/image.png" width="70px" />
-      </v-btn>
+      <v-file-input
+        label="Profile Image"
+        variant="underlined"
+        style="width: 200px"
+        prepend-icon="mdi-image"
+      />
 
       <v-text-field
         v-model="user_id"
@@ -133,11 +136,9 @@
 </template>
 <script>
 import axios from "axios";
-import user_profile_sample from "@/assets/json/user_profile_sample.json";
 import { reactive } from "vue"; //반응형 데이터 선언
 export default {
   data: () => ({
-    user_info: user_profile_sample,
     passAuthenticator: "0", //인증번호체크 0:불일치, 1:일치
     passUserIdVaild: "0", //사용자 ID 중복 체크  0:중복, 1:사용가능
     passUserNicknameVaild: "0", //사용자 닉네임 중복 체크 0:중복, 1:사용가능
@@ -266,8 +267,10 @@ export default {
     ],
   }),
   methods: {
+    previewFile() {},
     passwordCheck() {
       //패스워드 일치 여부 확인 메서드
+
       if (this.password2 == this.password) {
         return true;
       } else {
@@ -277,7 +280,7 @@ export default {
     sendEmail() {
       //인증번호 전송 버튼 메서드
       axios
-        .post("http://localhost:7070/api/send-mail/email", this.email, {
+        .post("http://localhost:7070/api/email/send", this.email, {
           headers: {
             //Message Body에 들어가는 타입을 HTTP Header에 명시
             "Content-Type": "application/json",
@@ -296,7 +299,7 @@ export default {
       //인증번호 체크 버튼 메서드
 
       axios
-        .post("http://localhost:8080/api/send-mail/check", this.authenticator, {
+        .post("http://localhost:7070/api/email/check", this.authenticator, {
           headers: {
             //Message Body에 들어가는 타입을 HTTP Header에 명시
             "Content-Type": "application/json",
@@ -314,12 +317,18 @@ export default {
     },
     checkIdDuplicate() {
       //중복아이디 체크 메서드
+
       if (this.user_id == "") {
         alert("아이디를 입력해 주세요");
         return false;
       }
+      const obj = reactive({
+        //reactive :반응형 객체 생성
+        user_id: this.user_id,
+      });
+      const idDATA = JSON.stringify(obj); //객체를 json형태의 문자열로 변환
       axios
-        .post("http://localhost:7070/api/signup/id-check", this.user_id, {
+        .post("http://localhost:7070/api/user/idcheck", idDATA, {
           headers: {
             //Message Body에 들어가는 타입을 HTTP Header에 명시
             "Content-Type": "application/json",
@@ -341,17 +350,18 @@ export default {
         alert("닉네임을 입력해 주세요");
         return false;
       }
+      const obj = reactive({
+        //reactive :반응형 객체 생성
+        nickname: this.nickname,
+      });
+      const DATA = JSON.stringify(obj); //객체를 json형태의 문자열로 변환
       axios
-        .post(
-          "http://localhost:7070/api/signup/nickname-check",
-          this.nickname,
-          {
-            headers: {
-              //Message Body에 들어가는 타입을 HTTP Header에 명시
-              "Content-Type": "application/json",
-            },
-          }
-        )
+        .post("http://localhost:7070/api/user/nicknamecheck", DATA, {
+          headers: {
+            //Message Body에 들어가는 타입을 HTTP Header에 명시
+            "Content-Type": "application/json",
+          },
+        })
         .then(() => {
           //유효성 검증 성공
           alert("사용 가능한 닉네임입니다.");
