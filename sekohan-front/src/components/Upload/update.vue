@@ -20,13 +20,13 @@
                     v-model="productPrice"
                     label="상품 가격"
                     suffix="￥"
-                    @input="formatPrice"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12" sm="6">
                   <v-select
                     class="pa-0"
                     label="상품상태"
+                    @update:menu="status"
                     v-model="select"
                     :items="options"
                     outlined
@@ -106,6 +106,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -114,6 +116,7 @@ export default {
       productName: "",
       productDescription: "",
       productPrice: "",
+      prostatus: 0,  //상품상태(판매중) : 0
       productImage: null,
       productImagePreview: null,
       newFiles: [],
@@ -122,34 +125,58 @@ export default {
     };
   },
   methods: {
-    submitProduct() {
-      const hasUploadedFiles = this.uploadedFiles.length > 0;
-      if (hasUploadedFiles) {
-        this.uploadedFiles = [];
+    status() {
+      if (this.select === "판매중") {
+        console.log("status 데이터 0")
+        this.prostatus = 0;
+      } else if (this.select === "거래중") {
+        console.log("status 데이터 1")
+        this.prostatus = 1;
+      } else if (this.select === "거래완료") {
+        console.log("status 데이터 2")
+        this.prostatus = 2;
       }
-      console.log("등록된 상품: ", {
-        name: this.productName,
-        description: this.productDescription,
-        price: this.productPrice,
-        image: this.productImage,
-      });
+    },
+    submitProduct() {
+      const currentPath = window.location.pathname;
+      const pageid = currentPath.split("/").pop();
+      const url = `http://localhost:7070/mypage/update/${pageid}`;
+      const formData = new FormData();
+      formData.append("proName", this.productName);
+      formData.append("proInfo", this.productDescription);
+      formData.append("proPrice", this.productPrice);
+      for (let i = 0; i < this.newFiles.length; i++) {
+        formData.append("files", this.newFiles[i]);
+      }
+      formData.append("status", this.prostatus);
+      formData.append("categoryId", 5);
+      formData.append("userId", 2);
 
+      axios
+        .put(url, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((response) => {
+          console.log("성공", response.data);
+        })
+        .catch((error) => {
+          console.error("업로드실패", error);
+        });
+
+      this.prostatus = "";
       this.productName = "";
       this.productDescription = "";
       this.productPrice = "";
       this.productImage = null;
       this.productImagePreview = null;
-      this.uploadedFiles = null;
+      this.uploadedFiles = [];
+      //초기화
     },
-    onFileChanged(event) {
+    onFileChange(event) {
       this.productImage = event.target.files[0];
       this.productImagePreview = URL.createObjectURL(this.productImage);
-    },
-    clearImage() {
-      this.productImage = null;
-      this.productImagePreview = null;
-    },
-    onFileChange() {
       this.showFileInput = false;
       const newPreviews = this.newFiles.map((file) => ({
         file,
@@ -157,14 +184,13 @@ export default {
       }));
       this.uploadedFiles.push(...newPreviews);
     },
+    clearImage() {
+      this.productImage = null;
+      this.productImagePreview = null;
+    },
     deleteFile(index) {
       URL.revokeObjectURL(this.uploadedFiles[index].preview);
       this.uploadedFiles.splice(index, 1);
-    },
-    formatPrice() {
-      this.productPrice = this.productPrice
-        .replace(/[^\d.]/g, "")
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     openFileInput() {
       this.showFileInput = true;

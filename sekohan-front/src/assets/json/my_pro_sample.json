@@ -4,69 +4,69 @@
           "subtitle": "서브 이름",
           "price": 10000,
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png",
-          "number": "test"
+          "number": "1"
         },
         {
           "title": "Salted Caramel Swirl Ice Cream",
           "subtitle": "Stone Kitchen",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/salted-caramel-ice-cream.png",
           "price": 2000,
-          "number": "test"
+          "number": "2"
         },
         {
           "title": "Peanut Butter No-Churn Ice Cream",
           "subtitle": "The Sweeter Side",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
           "price": 3000,
-          "number": "test"
+          "number": "3"
         },
         {
           "title": "Peanut Butter No-Churn Ice Cream",
           "subtitle": "The Sweeter Side",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
           "price": 4000,
-          "number": "test"
+          "number": "4"
         },
         {
           "title": "Peanut Butter No-Churn Ice Cream",
           "subtitle": "The Sweeter Side",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
           "price": 5000,
-          "number": "test"
+          "number": "5"
         },
         {
          "title": "세코한",
          "subtitle": "The Sweeter Side",
           "src": "src/assets/img/sekohan_logo.png",
           "price": 6000,
-          "number": "test"
+          "number": "6"
         },
         {
           "title": "초코칩 팔아요",
           "subtitle": "My nickname",
           "price": 1000,
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/dulce-ice-cream.png",
-          "number": "test"
+          "number": "7"
         },
         {
           "title": "Salted Caramel Swirl Ice Cream",
           "subtitle": "My nickname",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/salted-caramel-ice-cream.png",
           "price": 2000,
-          "number": "test"
+          "number": "8"
         },
         {
           "title": "9Peanut Butter No-Churn Ice Cream9",
           "subtitle": "My nickname",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
           "price": 3000,
-          "number": "test"
+          "number": "9"
         },
         {
           "title": "10Peanut Butter No-Churn Ice Cream10",
           "subtitle": "My nickname",
           "src": "https://cdn.vuetifyjs.com/docs/images/graphics/peanut-butter-ice-cream.png",
           "price": 4000,
-          "number": "test"
+          "number": "10"
         }
 ]

@@ -6,6 +6,7 @@ const Home = () => import('../views/Home.vue');
 const routes = [
   { path: '/', component: Home },
   { path: '/product/list', component: () => import('../views/Product.vue')},
+  { path: '/product/list/:postid', component: () => import('../views/Product.vue')},
   { path: '/faq', component: () => import('../views/Faq.vue')},
   { path: '/product/page/:postid', component: () => import("@/components/product_page/ProductPage.vue")},
   { path: '/mypage', component: () => import("../components/my_page/MyPage")},
@@ -17,7 +18,7 @@ const routes = [
   { path: '/:pathMatch(.*)*',redirect: "/404"},
   { path: '/404', name:"notFound",component: () => import("../components/error/404.vue")},
   { path: '/upload', component: () => import("../components/Upload/upload.vue")},
-  { path: '/update/test', component: () => import("../components/Upload/update.vue")},
+  { path: '/update/:postid', component: () => import("../components/Upload/update.vue")},
   { path: '/test', component: () => import("../components/Upload/test3.vue")},
 
   // { path: '/upload', component: () => import("@/components/my_page/Upload.vue")}

@@ -1,10 +1,13 @@
 <template>
   <v-row>
-    <v-col v-for="pro_data in data.slice((page*4)-4, page*4)" :key="pro_data">
+    <v-col
+      v-for="item in pro_sample.slice(page * 4 - 4, page * 4)"
+      :key="pro_data"
+    >
       <v-card
         class="mx-auto"
-        min-height="180"
-        max-height="180"
+        min-height="210"
+        max-height="210"
         min-width="600"
         max-width="600"
         v-bind="props"
@@ -12,18 +15,21 @@
         <v-row>
           <v-col cols="12" sm="4">
             <v-img
-              width="160"
-              style="margin-top: 10px; margin-left: 10px;"
-              :src="pro_data.src"
+              max-height="170"
+              max-width="170"
+              min-height="170"
+              min-width="170"
+              style="margin-top: 20px; margin-left: 20px"
+              :src="getImageUrl(item.path)"
             ></v-img>
           </v-col>
           <v-col cols="12" sm="5">
             <v-card-text style="position">
               <v-list-item
-                :title="pro_data.title"
-                :subtitle="pro_data.subtitle"
+                :title="item.proName"
+                :subtitle="item.proInfo"
               ></v-list-item>
-              <v-list-item>{{ pro_data.price }}￥</v-list-item>
+              <v-list-item>{{ item.proPrice }}￥</v-list-item>
             </v-card-text>
           </v-col>
           <v-col cols="12" sm="3" style="align=right;">
@@ -43,7 +49,7 @@
   <div class="text-center">
     <v-pagination
       v-model="page"
-      :length="5"
+      :length="pro_sample.length / 4"
       :total-visible="6"
       prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right"
@@ -52,24 +58,39 @@
 </template>
 
 <script>
-import pro_sample from "@/assets/json/pro_sample.json";
+import axios from "axios";
+
 export default {
   data() {
     return {
-      data: pro_sample,
+      pro_sample: [],
       page: 1,
-      computed:{
-        numOfPage(){
-          return Math.celi(this.data.length/4)
-        }
-      }
     };
   },
-  // data: () => ({
-  //   tab: null,
-  // }),
+  mounted() {
+    this.imageData();
+  },
+  methods: {
+    getImageUrl(path) {
+      return `http://localhost:7070/images/${path}`;
+    },
+    imageData() {
+      const uId = 2;
+      const mylist = `http://localhost:7070/mypage/soldout/${uId}`;
+      axios
+        .get(mylist)
+        .then((response) => {
+          console.log(response.data);
+          this.pro_sample = response.data;
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    },
+  },
 };
 </script>
+
 <style>
 
 #orderSoldOut .v-card-text {

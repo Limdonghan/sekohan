@@ -1,6 +1,48 @@
 <template>
   <v-container>
     <v-row justify="center">
+      <v-col cols="12" sm="2">
+      <v-list v-model:opened="open" style="margin-top: 15%">
+        <v-list-item>
+          <v-list-item-content class="text-center">
+            <v-list-item-title
+              class="headline font-weight-bold"
+              style="font-size: 140%"
+              >카테고리</v-list-item-title
+            >
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-group
+          v-for="category in categories[0].subcategories"
+          :key="category.id"
+          :value="category.name"
+        >
+          <template v-slot:activator="{ props }">
+            <v-list-item v-bind="props" :title="category.name"></v-list-item>
+          </template>
+          <v-list-group
+            v-for="subCategory in category.subcategories"
+            :key="subCategory.id"
+            :value="subCategory.name"
+          >
+            <template v-slot:activator="{ props }">
+              <v-list-item
+                v-bind="props"
+                :title="subCategory.name"
+              ></v-list-item>
+            </template>
+            <v-list-item
+              v-for="(subSubCategory, i) in subCategory.subcategories"
+              :key="subSubCategory.id"
+              :value="subSubCategory.name"
+              @click="addSelectedCategory(subSubCategory)">
+              {{ subSubCategory.name }}
+            </v-list-item>
+          </v-list-group>
+        </v-list-group>
+      </v-list>
+      <v-card> </v-card>
+    </v-col>
       <v-col cols="12" sm="8" md="6">
         <v-card>
           <v-card-title primary-title>
@@ -94,6 +136,7 @@
 
 <script>
 import axios from "axios";
+import category from "@/assets/json/category.json";
 
 export default {
   data() {
@@ -106,9 +149,17 @@ export default {
       newFiles: [],
       showFileInput: false,
       uploadedFiles: [],
+      categories: category,
+      open: ["Users"],
+      selectedCategories: [],
     };
   },
   methods: {
+    addSelectedCategory(subSubCategory) {
+    this.selectedCategories = []; // 매번 추가될 때마다 배열을 초기화합니다.
+    this.selectedCategories.push(subSubCategory);
+    console.log('성공', this.selectedCategories);
+  },
     submitProduct() {
       const formData = new FormData();
       formData.append("proName", this.productName);
@@ -117,11 +168,13 @@ export default {
       for (let i = 0; i < this.newFiles.length; i++) {
         formData.append("files", this.newFiles[i]);
       }
-      formData.append("categoryId", 5);
-      formData.append("userId", 1);
+      this.selectedCategories.forEach((category) => {
+        formData.append("categoryId", category.id);
+      });
+      formData.append("userId", 2);
 
       axios
-        .post("http://localhost:7070/products/upload", formData, {
+        .post("http://localhost:7070/mypage/upload", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -139,6 +192,7 @@ export default {
       this.productImage = null;
       this.productImagePreview = null;
       this.uploadedFiles = [];
+      this.selectedCategories = [];
     },
     onFileChange(event) {
       this.productImage = event.target.files[0];

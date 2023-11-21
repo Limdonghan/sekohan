@@ -1,0 +1,45 @@
+[
+  {
+    "id": 0,
+    "subcategories": [
+      {
+        "id": 1,
+        "name": "패션뷰티",
+        "subcategories": [
+          {
+            "id": 2,
+            "name": "여성의류",
+            "subcategories": [
+              { "id": 4, "name": "원피스·정장" },
+              { "id": 5, "name": "블라우스·셔츠" },
+              { "id": 6, "name": "여성소호" }
+            ]
+          },
+          {
+            "id": 3,
+            "name": "남성의류",
+            "subcategories": [
+              { "id": 7, "name": "정장·수트" },
+              { "id": 8, "name": "니트·가디건·조끼" },
+              { "id": 9, "name": "테마·시즌의류" }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "전자기기",
+        "subcategories": [
+          {
+            "id": 11,
+            "name": "컴퓨터",
+            "subcategories": [
+              { "id": 12, "name": "노트북" },
+              { "id": 13, "name": "데스크탑" }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
